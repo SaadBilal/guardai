@@ -7,7 +7,7 @@
 [![EU AI Act Compliant](https://img.shields.io/badge/EU%20AI%20Act-Art.%2012%2F17%2F50-emerald)](https://artificialintelligenceact.eu/)
 [![GDPR Compliant](https://img.shields.io/badge/GDPR-Art.%205%2F17%2F32-teal)](https://gdpr.eu/)
 
-**Guard AI** is an ultra-low-latency, zero-trust API proxy and compliance engine built for European enterprises and developers. It wraps around commercial (OpenAI, Anthropic) and self-hosted (Ollama, vLLM) LLM endpoints with **under 10 lines of code**—automatically handling inline PII scrubbing, multi-tenant context isolation, and SHA-256 immutable audit logging.
+**Guard AI** is an ultra-low-latency, zero-trust API proxy and compliance engine built for European enterprises and developers. It wraps around commercial (OpenAI, Anthropic) and self-hosted (Ollama, vLLM) LLM endpoints with **under 10 lines of code** automatically handling inline PII scrubbing, multi-tenant context isolation, and SHA-256 immutable audit logging.
 
 ---
 
