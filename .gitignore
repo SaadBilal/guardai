@@ -1,0 +1,10 @@
+# JetBrains/PyCharm project files
+.idea/
+*.iml
+
+# Python temporary files
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
