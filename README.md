@@ -1,4 +1,4 @@
-# 🛡️ Guard AI (`guard-ai`)
+# 🛡️ Guard AI (`guardai`)
 
 > **Developer-First Zero-Trust API Proxy & Real-Time EU AI Act Compliance Engine**
 
@@ -23,6 +23,29 @@ Building custom compliance pipelines takes months of legal and engineering work.
 * ⚡ **High-Performance Ingress:** Built on Python 3.11+, FastAPI, and Uvicorn, engineered for high-concurrency asynchronous stream processing.
 
 * 🇪🇺 **Sovereign Cloud Native:** Pre-configured for EU-based routing (e.g., AWS Frankfurt / Azure West Europe) under Zero Data Retention (ZDR) enterprise policies.
+
+
+## 🛡️ Regulatory Compliance & EU Legal Alignment
+
+Guard AI is built from the ground up to address the strict compliance requirements enforced by European Union regulations for enterprise Generative AI deployments.
+
+### 🇪🇺 EU AI Act Compliance
+
+| EU AI Act Provision | Regulatory Requirement | Guard AI Technical Enforcement |
+| :--- | :--- | :--- |
+| **Article 12** <br>*(Record-Keeping & Traceability)* | High-risk AI systems must automatically record event logs throughout their lifecycle to guarantee traceability. | **Cryptographic Audit Pipeline:** Every incoming prompt and sanitized output generates an immutable, tamper-evident SHA-256 event log in real-time. |
+| **Article 10** <br>*(Data & Data Governance)* | Mandates strict data management, privacy protection, and bias mitigation for data used during inference and training. | **In-Memory PII Scrubbing:** Presidio + spaCy NLP engines strip sensitive entities (Names, IBANs, Emails, Credentials) before payloads reach LLMs. |
+| **Article 15** <br>*(Cybersecurity & Data Leakage)* | Requires systems to resist unauthorized data leakage, prompt injection, and cross-tenant context bleeding. | **Multi-Tenant Vector Isolation:** Injected metadata filtering guarantees strict client isolation across RAG vector database queries. |
+
+### 🔒 GDPR (General Data Protection Regulation)
+
+| GDPR Provision | Legal Mandate | How Guard AI Safeguards Your Enterprise |
+| :--- | :--- | :--- |
+| **Article 5(1)(c)** <br>*(Data Minimization)* | Personal data must be limited strictly to what is necessary for processing. | **Dynamic Anonymization:** Redacts personal identifiers instantly so downstream frontier models receive only anonymized contextual tokens. |
+| **Article 32** <br>*(Security of Processing)* | Implement technical measures to maintain data confidentiality and prevent unauthorized access. | **Zero-Trust Reverse Proxy:** Operates on Zero Data Retention (ZDR) routing, acting as an enterprise firewall. |
+
+---
+
 
 ## 🏗️ Architecture Diagram
 
@@ -183,6 +206,16 @@ Guard AI scrubbed the PII in-memory before downstream routing and generated an a
   * Python SDK (`pip install guard-ai-python`)
 
   * Node.js/TypeScript SDK (`npm install @guard-ai/sdk`)
+
+
+  
+### 🚀 Phase 2 Roadmap: Deep Database Integration
+
+Guard AI is currently advancing to **Phase 2**, shifting from prompt-level protection to enterprise database-layer security:
+
+* **Tenant-Based Vector DB Middleware:** Native middleware adapters for **Qdrant**, **pgvector**, and **ChromaDB** that automatically inject `X-Tenant-ID` metadata filters to eliminate cross-tenant data leaks in multi-tenant RAG architectures.
+* **Tamper-Proof Audit Vault:** Expanding SHA-256 local logging into an append-only, immutable audit ledger for external compliance verification.
+  
 
 ## 🤝 Contributing
 
