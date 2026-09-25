@@ -110,7 +110,7 @@ pii_engine = PIIScrubber()
 class ChatMessage(BaseModel):
     role: str = Field(..., json_schema_extra={"example": "user"})
     content: str = Field(..., json_schema_extra={
-        "example": "Hello, please process invoice for John Doe at john@example.com."})
+        "example": "Hello, please process invoice for Saad Bilal at saad@example.com."})
 
 
 class ChatCompletionRequest(BaseModel):
@@ -311,7 +311,7 @@ async def get_dashboard():
                         curl -X POST "http://localhost:8080/v1/chat/completions" \<br>
                         &nbsp;&nbsp;-H "Content-Type: application/json" \<br>
                         &nbsp;&nbsp;-H "X-Tenant-ID: tenant-eu-corp-1" \<br>
-                        &nbsp;&nbsp;-d '{"model": "gpt-4o", "messages": [{"role": "user", "content": "Send report to jane@enterprise.com"}]}'
+                        &nbsp;&nbsp;-d '{"model": "gpt-4o", "messages": [{"role": "user", "content": "Send report to saad@enterprise.com"}]}'
                     </code>
                 </div>
             </div>
