@@ -1,267 +1,283 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guard AI — Developer-First Zero-Trust AI Proxy & EU AI Act Compliance Engine</title>
-
-    <!-- Tailwind CSS CDN -->
+    <title>Guard AI Proxy — Enterprise Governance & Control Center</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            50: '#f0f9ff',
-                            100: '#e0f2fe',
-                            400: '#38bdf8',
-                            500: '#0ea5e9',
-                            600: '#0284c7',
-                            900: '#0c4a6e',
-                            950: '#082f49',
-                        },
-                        accent: {
-                            400: '#2dd4bf',
-                            500: '#14b8a6',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                        mono: ['Fira Code', 'JetBrains Mono', 'monospace'],
-                    }
-                }
-            }
-        }
-    </script>
-
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        body { background-color: #07090e; color: #f1f5f9; font-family: 'Inter', sans-serif; }
-        .glass-panel { background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
-        .glow-sky { box-shadow: 0 0 50px -10px rgba(14, 165, 233, 0.25); }
-        .bg-grid { background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px); background-size: 32px 32px; }
+        body { background-color: #07090e; font-family: 'Inter', sans-serif; }
+        .glass { background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .glow { box-shadow: 0 0 25px -5px rgba(56, 189, 248, 0.15); }
     </style>
 </head>
-<body class="bg-grid antialiased selection:bg-sky-500 selection:text-slate-950 flex flex-col min-h-screen justify-between">
+<body class="text-slate-200 min-h-screen flex flex-col justify-between">
 
-    <!-- Header / Navigation -->
-    <header class="sticky top-0 z-50 glass-panel border-b border-slate-800/80">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <div class="bg-gradient-to-tr from-sky-500 to-teal-400 p-2.5 rounded-xl shadow-lg shadow-sky-500/20">
-                    <i class="fa-solid fa-shield-halved text-slate-950 text-xl"></i>
-                </div>
-                <div>
-                    <span class="font-extrabold text-xl tracking-tight text-white">GUARD AI <span class="text-xs px-2 py-0.5 rounded bg-sky-950 text-sky-400 border border-sky-800/60 font-mono ml-1">v1.0</span></span>
-                    <p class="text-[10px] text-slate-400 tracking-wider font-mono">ZERO-TRUST LLM PROXY</p>
-                </div>
+    <!-- Navigation Header -->
+    <nav class="border-b border-slate-800/80 bg-slate-950/90 sticky top-0 z-50 backdrop-blur-md px-8 py-4 flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+            <div class="bg-gradient-to-tr from-sky-500 to-teal-400 p-2.5 rounded-xl text-slate-950 font-bold">
+                <i class="fa-solid fa-shield-halved text-xl"></i>
             </div>
-
-            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
-                <a href="#features" class="hover:text-sky-400 transition">Features</a>
-                <a href="#architecture" class="hover:text-sky-400 transition">Architecture</a>
-                <a href="#compliance" class="hover:text-sky-400 transition">Compliance</a>
-                <a href="#demo" class="hover:text-sky-400 transition">Live Demo</a>
-            </nav>
-
-            <div class="flex items-center space-x-3">
-                <a href="https://www.linkedin.com/in/saadbilal/" target="_blank" class="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-sky-400 border border-slate-700/80 transition" title="LinkedIn Profile">
-                    <i class="fa-brands fa-linkedin text-lg"></i>
-                </a>
-                <a href="https://saadbilal.vercel.app/" target="_blank" class="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-teal-400 border border-slate-700/80 transition" title="Personal Website">
-                    <i class="fa-solid fa-globe text-lg"></i>
-                </a>
-                <a href="https://github.com/saadbilal/guardai" target="_blank" class="flex items-center gap-2 bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-sm px-4 py-2 rounded-xl transition shadow-lg shadow-sky-500/20">
-                    <i class="fa-brands fa-github text-lg"></i>
-                    <span>GitHub Repo</span>
-                </a>
+            <div>
+                <h1 class="font-bold text-lg text-white tracking-wide flex items-center gap-2">
+                    GUARD AI
+                    <span class="text-sky-400 text-xs font-mono px-2 py-0.5 rounded bg-sky-950 border border-sky-800">PHASE 2</span>
+                </h1>
+                <p class="text-xs text-slate-400">Zero-Trust AI Proxy & EU Regulatory Compliance Gateway</p>
             </div>
         </div>
-    </header>
+        <div class="flex items-center space-x-4">
+            <a href="#compliance" class="text-xs font-mono text-slate-300 hover:text-sky-400 transition">EU Compliance</a>
+            <a href="#roadmap" class="text-xs font-mono text-slate-300 hover:text-sky-400 transition">Phase 2 Roadmap</a>
+            <a href="#playground" class="text-xs font-mono text-sky-400 border border-sky-800/80 px-3 py-1.5 rounded-lg bg-sky-950/40 hover:bg-sky-900/50 transition">
+                <i class="fa-solid fa-flask text-xs mr-1"></i> Playground
+            </a>
+            <a href="/docs" target="_blank" class="text-xs font-mono text-slate-400 border border-slate-800 px-3 py-1.5 rounded-lg hover:border-slate-700 transition">API Docs</a>
+        </div>
+    </nav>
 
-    <!-- Hero Section -->
-    <section class="relative pt-16 pb-20 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 text-center space-y-8">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-panel border border-sky-500/30 text-sky-400 text-xs font-mono">
-                <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
-                <span>EU AI Act Article 12 & GDPR Compliant Gateway</span>
+    <!-- Main Container -->
+    <main class="max-w-7xl w-full mx-auto p-6 md:p-8 space-y-12">
+
+        <!-- Hero Section -->
+        <section class="text-center space-y-4 py-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-sky-400 text-xs font-mono">
+                <i class="fa-solid fa-bolt"></i> Sub-15ms Latency | Zero Data Retention
             </div>
-
-            <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight max-w-4xl mx-auto">
-                Developer-First <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-teal-300">Zero-Trust AI Proxy</span> for European Enterprises
+            <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
+                Sovereign AI Security for <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-teal-300">European Enterprises</span>
             </h1>
-
-            <p class="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-                Architected by <a href="https://saadbilal.vercel.app/" target="_blank" class="text-sky-400 font-semibold hover:underline">Saad Bilal</a>. Intercepts commercial and sovereign LLM calls with under 15ms latency. Automated inline PII scrubbing, tenant-level vector context isolation, and SHA-256 immutable audit logging.
+            <p class="text-slate-400 max-w-2xl mx-auto text-sm leading-relaxed">
+                Guard AI sits as a zero-trust gateway between application frontends and frontier LLM backends—enforcing dynamic PII scrubbing, cryptographic event audit logging, and cross-tenant vector database isolation.
             </p>
+        </section>
 
-            <div class="flex flex-wrap justify-center gap-4 pt-2">
-                <a href="#demo" class="bg-gradient-to-r from-sky-500 to-teal-400 text-slate-950 font-bold px-7 py-3.5 rounded-xl shadow-lg shadow-sky-500/20 hover:opacity-95 transition flex items-center gap-2">
-                    <i class="fa-solid fa-play text-sm"></i> Try Live Playground
-                </a>
-                <a href="https://www.linkedin.com/in/saadbilal/" target="_blank" class="glass-panel text-slate-200 font-semibold px-7 py-3.5 rounded-xl hover:bg-slate-800 transition border border-slate-700/80 flex items-center gap-2">
-                    <i class="fa-brands fa-linkedin text-sky-400 text-sm"></i> Connect on LinkedIn
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Live Interactive Demo Section -->
-    <section id="demo" class="py-12 relative">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-8">
-                <h2 class="text-2xl font-bold text-white">Interactive PII Redaction Playground</h2>
-                <p class="text-sm text-slate-400">See how Guard AI sanitizes user prompts in real-time before reaching upstream models.</p>
+        <!-- 1. EU Regulatory Compliance & Legal Alignment Section -->
+        <section id="compliance" class="space-y-6">
+            <div class="border-b border-slate-800 pb-4">
+                <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-scale-balanced text-sky-400"></i> EU Regulatory Alignment & Legal Framework
+                </h2>
+                <p class="text-xs text-slate-400">Engineered to comply with strict European Union AI governance laws and data privacy directives.</p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 glass-panel p-6 sm:p-8 rounded-3xl glow-sky">
-                <!-- Input Panel -->
-                <div class="space-y-4 flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-center mb-2">
-                            <label class="text-xs font-semibold text-sky-400 font-mono flex items-center gap-2">
-                                <i class="fa-solid fa-arrow-right-to-bracket"></i> INCOMING PROMPT PAYLOAD
-                            </label>
-                            <span class="text-[10px] bg-slate-800 text-slate-400 px-2 py-0.5 rounded font-mono">POST /v1/chat/completions</span>
-                        </div>
-                        <textarea id="demoInput" rows="7" class="w-full bg-slate-950 border border-slate-800 rounded-2xl p-4 text-sm font-mono text-slate-200 focus:outline-none focus:border-sky-500/80 resize-none">Please verify refund status for Saad Bilal (saad.bilal@enterprise.com). IBAN: DE89370400440532013000.</textarea>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- EU AI Act Art 12 -->
+                <div class="glass p-6 rounded-2xl space-y-3 relative overflow-hidden">
+                    <div class="text-xs font-mono text-sky-400 font-bold">EU AI ACT — ARTICLE 12</div>
+                    <h3 class="text-base font-semibold text-white">Record-Keeping & Traceability</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Requires high-risk AI systems to automatically record event logs throughout their lifecycle to guarantee absolute operational auditability.
+                    </p>
+                    <div class="bg-slate-950 p-3 rounded-xl border border-slate-800/80 text-xs font-mono text-teal-400">
+                        <i class="fa-solid fa-check text-xs mr-1"></i> SHA-256 Immutable Hash Audit Trail
                     </div>
+                </div>
 
-                    <button onclick="runDemoScrubber()" class="w-full bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 shadow-lg">
-                        <i class="fa-solid fa-shield-cat"></i> Sanitize via Guard AI Engine
+                <!-- EU AI Act Art 10 -->
+                <div class="glass p-6 rounded-2xl space-y-3 relative overflow-hidden">
+                    <div class="text-xs font-mono text-sky-400 font-bold">EU AI ACT — ARTICLE 10</div>
+                    <h3 class="text-base font-semibold text-white">Data Governance & Anonymization</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Mandates strict data management, privacy safeguards, and PII suppression before prompt payloads reach external inference models.
+                    </p>
+                    <div class="bg-slate-950 p-3 rounded-xl border border-slate-800/80 text-xs font-mono text-teal-400">
+                        <i class="fa-solid fa-check text-xs mr-1"></i> Presidio + spaCy Real-Time PII Scrubbing
+                    </div>
+                </div>
+
+                <!-- GDPR Art 5 & 32 -->
+                <div class="glass p-6 rounded-2xl space-y-3 relative overflow-hidden">
+                    <div class="text-xs font-mono text-sky-400 font-bold">GDPR — ARTICLE 5(1)(c) & 32</div>
+                    <h3 class="text-base font-semibold text-white">Data Minimization & Security</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Personal data must be strictly limited to processing requirements and protected against unauthorized multi-tenant exposure.
+                    </p>
+                    <div class="bg-slate-950 p-3 rounded-xl border border-slate-800/80 text-xs font-mono text-teal-400">
+                        <i class="fa-solid fa-check text-xs mr-1"></i> Multi-Tenant Vector DB Context Isolation
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Interactive Testing Playground Section -->
+        <section id="playground" class="space-y-6">
+            <div class="border-b border-slate-800 pb-4">
+                <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-vial text-teal-400"></i> Interactive Security Playground
+                </h2>
+                <p class="text-xs text-slate-400">Test real-time PII anonymization and multi-tenant vector metadata injection in action.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Chat LLM Proxy Test -->
+                <div class="glass p-6 rounded-2xl space-y-4 glow">
+                    <h3 class="text-sm font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-user-shield text-teal-400"></i> 1. LLM Chat Proxy + PII Scrubber
+                    </h3>
+                    <p class="text-xs text-slate-400">Tests Presidio NLP anonymization before prompts are forwarded upstream.</p>
+                    <textarea id="chatInput" rows="4" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs font-mono text-slate-200 focus:outline-none focus:border-sky-500 transition">Please verify refund for Saad Bilal (saad.bilal@enterprise.com).</textarea>
+                    <button onclick="testChatProxy()" class="w-full bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold py-2.5 rounded-xl text-xs transition shadow-lg">
+                        Execute Chat Proxy
                     </button>
                 </div>
 
-                <!-- Output Panel -->
-                <div class="space-y-4 flex flex-col">
-                    <div class="flex justify-between items-center mb-1">
-                        <label class="text-xs font-semibold text-teal-400 font-mono flex items-center gap-2">
-                            <i class="fa-solid fa-shield-check"></i> PROXY PROCESSED RESPONSE
-                        </label>
-                        <span id="demoLatency" class="text-xs font-mono text-slate-500">Ready</span>
-                    </div>
-                    <div id="demoOutput" class="flex-1 bg-slate-950 border border-slate-800 rounded-2xl p-4 font-mono text-xs text-slate-300 leading-relaxed overflow-x-auto">
-                        <span class="text-slate-600">// Click "Sanitize via Guard AI Engine" to test payload scrubbing...</span>
-                    </div>
+                <!-- Vector DB Isolation Test -->
+                <div class="glass p-6 rounded-2xl space-y-4 glow">
+                    <h3 class="text-sm font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-layer-group text-sky-400"></i> 2. Multi-Tenant Vector DB Isolation
+                    </h3>
+                    <p class="text-xs text-slate-400">Injects tenant metadata filters to prevent cross-client data leakage in RAG.</p>
+                    <input id="vectorTenant" type="text" value="tenant-saad-corp" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs font-mono text-slate-200 focus:outline-none focus:border-sky-500" />
+                    <textarea id="vectorInput" rows="2" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs font-mono text-slate-200 focus:outline-none focus:border-sky-500">Fetch Q3 budget reports</textarea>
+                    <button onclick="testVectorProxy()" class="w-full bg-teal-400 hover:bg-teal-300 text-slate-950 font-bold py-2.5 rounded-xl text-xs transition shadow-lg">
+                        Execute Vector Query
+                    </button>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Key Features -->
-    <section id="features" class="py-16">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="glass-panel p-8 rounded-2xl space-y-4">
-                    <div class="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-400 text-xl">
-                        <i class="fa-solid fa-user-shield"></i>
+            <!-- Output Console -->
+            <div class="glass p-6 rounded-2xl space-y-2">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-xs font-mono text-slate-400">PROXY RESPONSE JSON OUTPUT</h3>
+                    <span class="text-[10px] font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">LIVE INTERCEPT</span>
+                </div>
+                <pre id="outputConsole" class="bg-slate-950 border border-slate-800 p-4 rounded-xl font-mono text-xs text-slate-300 overflow-x-auto min-h-[140px]">// Response logs will stream here...</pre>
+            </div>
+        </section>
+
+        <!-- 3. Development Roadmap & Funding Ask Section -->
+        <section id="roadmap" class="space-y-6">
+            <div class="border-b border-slate-800 pb-4">
+                <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-diagram-project text-sky-400"></i> Phase 2 Roadmap & Funding Objectives
+                </h2>
+                <p class="text-xs text-slate-400">Transitioning from proxy prototype to enterprise-grade database security middleware.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Delivered: Phase 1 -->
+                <div class="glass p-6 rounded-2xl space-y-4 border-slate-800">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-mono text-teal-400 font-bold">COMPLETED</span>
+                        <span class="text-xs font-mono text-slate-400">Phase 1 Milestone</span>
                     </div>
-                    <h3 class="text-lg font-bold text-white">Inline PII Scrubbing</h3>
-                    <p class="text-sm text-slate-400 leading-relaxed">
-                        Detects and anonymizes names, emails, phone numbers, IBANs, and passports in memory using Presidio and spaCy before leaving your infrastructure.
-                    </p>
+                    <h3 class="text-lg font-bold text-white">Proxy Architecture & PII Engine</h3>
+                    <ul class="text-xs text-slate-300 space-y-2 font-mono">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-teal-400"></i> FastAPI Zero-Trust Reverse Proxy Engine</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-teal-400"></i> Presidio + spaCy Dynamic PII Anonymization</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-teal-400"></i> Cryptographic SHA-256 Event Logging Pipeline</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-teal-400"></i> Public GitHub Pages Documentation & Portal</li>
+                    </ul>
                 </div>
 
-                <div class="glass-panel p-8 rounded-2xl space-y-4">
-                    <div class="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400 text-xl">
-                        <i class="fa-solid fa-link"></i>
+                <!-- Active: Phase 2 -->
+                <div class="glass p-6 rounded-2xl space-y-4 border-sky-800/60 bg-sky-950/20">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-mono text-sky-400 font-bold">IN DEVELOPMENT</span>
+                        <span class="text-xs font-mono text-sky-300">Phase 2 Target</span>
                     </div>
-                    <h3 class="text-lg font-bold text-white">Immutable Audit Logs</h3>
-                    <p class="text-sm text-slate-400 leading-relaxed">
-                        Fulfills EU AI Act Article 12 mandates with SHA-256 hash-chained JSON audit logs recording latencies, timestamps, and model parameters.
-                    </p>
-                </div>
-
-                <div class="glass-panel p-8 rounded-2xl space-y-4">
-                    <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 text-xl">
-                        <i class="fa-solid fa-layer-group"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white">Multi-Tenant Vector Security</h3>
-                    <p class="text-sm text-slate-400 leading-relaxed">
-                        Intercepts vector database queries (Qdrant, pgvector) to automatically inject strict metadata isolation filters per client tenant.
-                    </p>
+                    <h3 class="text-lg font-bold text-white">Deep Vector Database Integration</h3>
+                    <ul class="text-xs text-slate-300 space-y-2 font-mono">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-spinner animate-spin text-sky-400"></i> Native Adapters for Qdrant, pgvector & ChromaDB</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-spinner animate-spin text-sky-400"></i> Automatic Metadata Injection for RAG Isolation</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-clock text-slate-500"></i> Tamper-Proof Persistent Audit Vault (PostgreSQL/QLDB)</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-clock text-slate-500"></i> SOC 2 Type II & ISO 27001 Certification Readiness</li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </section>
+
+            <!-- Strategic Funding Banner -->
+            <div class="glass p-6 rounded-2xl border border-sky-800/80 bg-gradient-to-r from-sky-950/60 to-slate-950 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="space-y-1">
+                    <h3 class="text-base font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-coins text-sky-400"></i> Strategic Seed Funding & Partner Program
+                    </h3>
+                    <p class="text-xs text-slate-400">
+                        We are actively seeking strategic backing to accelerate Phase 2 production engineering and cloud deployment adapters.
+                    </p>
+                </div>
+                <a href="https://github.com/saadbilal/guardai" target="_blank" class="px-5 py-2.5 bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-xs rounded-xl transition whitespace-nowrap">
+                    Review GitHub Repository
+                </a>
+            </div>
+        </section>
+
+    </main>
 
     <!-- Footer -->
-    <footer class="border-t border-slate-800/80 bg-slate-950/90 py-8 px-6 text-center text-xs text-slate-400">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div class="flex items-center space-x-2">
-                <i class="fa-solid fa-shield-halved text-sky-400"></i>
-                <span class="font-bold text-white">Guard AI Proxy Engine</span>
-            </div>
-
-            <p class="font-medium text-slate-300">
-                Designed by <a href="https://saadbilal.vercel.app/" target="_blank" class="text-sky-400 font-semibold hover:underline">Saad Bilal</a> with <i class="fa-solid fa-heart text-red-500 animate-pulse"></i>
-            </p>
-
-            <div class="flex items-center space-x-4">
-                <a href="https://www.linkedin.com/in/saadbilal/" target="_blank" class="text-slate-400 hover:text-sky-400 transition flex items-center gap-1">
-                    <i class="fa-brands fa-linkedin text-sm"></i> LinkedIn
-                </a>
-                <a href="https://saadbilal.vercel.app/" target="_blank" class="text-slate-400 hover:text-teal-400 transition flex items-center gap-1">
-                    <i class="fa-solid fa-globe text-sm"></i> Website
-                </a>
-            </div>
+    <footer class="border-t border-slate-800/80 bg-slate-950 py-6 px-8 text-center text-xs text-slate-400 space-y-2">
+        <p>
+            Designed by <a href="https://saadbilal.vercel.app/" target="_blank" class="text-sky-400 font-semibold hover:underline">Saad Bilal</a> — Senior Solution Architect
+        </p>
+        <div class="flex justify-center space-x-4 text-slate-500">
+            <a href="https://github.com/saadbilal/guardai" target="_blank" class="hover:text-sky-400 transition"><i class="fa-brands fa-github text-sm"></i></a>
+            <a href="https://www.linkedin.com/in/saadbilal/" target="_blank" class="hover:text-sky-400 transition"><i class="fa-brands fa-linkedin text-sm"></i></a>
         </div>
     </footer>
 
-    <!-- Interactive Script -->
+    <!-- Interactive Execution Scripts -->
     <script>
-        function runDemoScrubber() {
-            const input = document.getElementById('demoInput').value;
-            const output = document.getElementById('demoOutput');
-            const latency = document.getElementById('demoLatency');
+        async function testChatProxy() {
+            const prompt = document.getElementById('chatInput').value;
+            const output = document.getElementById('outputConsole');
+            output.innerText = "Processing PII scrubbing and Article 12 event logging...";
 
-            let redacted = input;
-            let entities = [];
-
-            // Email Regex
-            const emails = input.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g);
-            if (emails) {
-                emails.forEach(e => {
-                    entities.push({ type: "EMAIL_ADDRESS", value: e });
-                    redacted = redacted.replace(e, "[REDACTED_EMAIL]");
+            try {
+                const res = await fetch('/v1/chat/completions', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'X-Tenant-ID': 'tenant-saad-corp' },
+                    body: JSON.stringify({ model: 'gpt-4o', messages: [{ role: 'user', content: prompt }] })
                 });
+                const data = await res.json();
+                output.innerText = JSON.stringify(data, null, 2);
+            } catch (err) {
+                output.innerText = "// Offline Demo Mode Output:\n" + JSON.stringify({
+                    "status": "success",
+                    "tenant_id": "tenant-saad-corp",
+                    "pii_engine": {
+                        "entities_found_count": 2,
+                        "entities": [{"type": "PERSON_NAME", "value": "Saad Bilal"}, {"type": "EMAIL_ADDRESS", "value": "saad.bilal@enterprise.com"}]
+                    },
+                    "sanitized_payload": {
+                        "messages": [{"role": "user", "content": "Please verify refund for [REDACTED_NAME] ([REDACTED_EMAIL])."}]
+                    },
+                    "eu_ai_act_audit": {
+                        "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                        "article_12_status": "compliant"
+                    }
+                }, null, 2);
             }
+        }
 
-            // IBAN Regex
-            const ibans = input.match(/DE\d{20}/g);
-            if (ibans) {
-                ibans.forEach(i => {
-                    entities.push({ type: "IBAN_CODE", value: i });
-                    redacted = redacted.replace(i, "[REDACTED_IBAN]");
+        async function testVectorProxy() {
+            const tenant = document.getElementById('vectorTenant').value;
+            const query = document.getElementById('vectorInput').value;
+            const output = document.getElementById('outputConsole');
+            output.innerText = "Injecting vector tenant isolation metadata...";
+
+            try {
+                const res = await fetch('/v1/vector/search', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'X-Tenant-ID': tenant },
+                    body: JSON.stringify({ query: query, top_k: 3 })
                 });
+                const data = await res.json();
+                output.innerText = JSON.stringify(data, null, 2);
+            } catch (err) {
+                output.innerText = "// Offline Demo Mode Output:\n" + JSON.stringify({
+                    "status": "proxy_intercepted",
+                    "tenant_id": tenant,
+                    "vector_db_action": "metadata_filter_injected",
+                    "outbound_vector_payload": {
+                        "query": query,
+                        "filter": { "must": [{ "key": "tenant_id", "match": { "value": tenant } }] }
+                    },
+                    "audit_log": { "sha256": "8f434346648f6b96df89dda901c5176b10a6d83961dd3c1ac88b59b2dc327aa4" }
+                }, null, 2);
             }
-
-            // Person Name (Saad Bilal)
-            if (input.includes("Saad Bilal")) {
-                entities.push({ type: "PERSON_NAME", value: "Saad Bilal" });
-                redacted = redacted.replace("Saad Bilal", "[REDACTED_NAME]");
-            }
-
-            const responsePayload = {
-                "guard_ai_status": "passed",
-                "tenant_context": { "tenant_id": "tenant-eu-corp-1", "vector_isolation": "enforced" },
-                "pii_scrubber": { "entities_detected": entities.length, "entities": entities },
-                "audit_engine": { "eu_ai_act_article_12": "compliant", "log_sha256": "8f4e2c9b1a3d..." },
-                "sanitized_payload": { "role": "user", "content": redacted }
-            };
-
-            latency.innerText = "< 8.4 ms";
-            latency.className = "text-xs font-mono text-teal-400 bg-teal-950 px-2 py-0.5 rounded border border-teal-800/50";
-            output.innerText = JSON.stringify(responsePayload, null, 2);
         }
     </script>
 </body>
