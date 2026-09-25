@@ -279,7 +279,7 @@ async def get_dashboard():
                         <input id="tenantId" type="text" value="tenant-eu-corp-1" class="w-full bg-slate-900 border border-slate-700/80 rounded-xl px-3.5 py-2 text-sm text-slate-200 mb-4 focus:outline-none focus:border-sky-500 font-mono" />
 
                         <label class="block text-xs font-medium text-slate-300 mb-1">Incoming User Payload</label>
-                        <textarea id="promptInput" rows="5" class="w-full bg-slate-900 border border-slate-700/80 rounded-xl p-3.5 text-sm text-slate-200 focus:outline-none focus:border-sky-500 font-mono resize-none">Hello, please process the invoice for John Doe (john.doe@acme-corp.com).</textarea>
+                        <textarea id="promptInput" rows="5" class="w-full bg-slate-900 border border-slate-700/80 rounded-xl p-3.5 text-sm text-slate-200 focus:outline-none focus:border-sky-500 font-mono resize-none">Hello, please process the invoice for Saad Bilal (saad.bilal@acme-corp.com) under IBAN: DE89 3704 0044 0532 0130 00.</textarea>
                     </div>
 
                     <button onclick="testProxy()" class="w-full bg-gradient-to-r from-sky-500 to-teal-500 hover:from-sky-400 hover:to-teal-400 text-slate-950 font-bold py-3 rounded-xl transition duration-200 shadow-lg flex items-center justify-center gap-2">
