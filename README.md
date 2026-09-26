@@ -10,7 +10,7 @@
 
 # Guard AI
 ### Enterprise Zero-Trust AI Proxy & EU Compliance Engine
-> **Developer-First Zero-Trust API Proxy & Real-Time EU AI Act Compliance Engine**
+**Developer-First Zero-Trust API Proxy & Real-Time EU AI Act Compliance Engine**
 
 
 **Designed & Built by [Saad Bilal](https://saadbilal.vercel.app/)**
@@ -21,14 +21,20 @@
 
 ---
 
+
+ <!-- Guard AI Referenced SVG Logo -->
+  <a href="https://saadbilal.github.io/guardai/">
+    <img src="og-image.svg" alt="Guard AI Logo" width="1200" height="850" />
+  </a>
+
 ### 🔒 PROPRIETARY SOFTWARE NOTICE
 
-> **Notice to all users and visitors:**  
-> **Guard AI** is proprietary software owned exclusively by **Saad Bilal**.  
-> The source code, architecture, design assets, and documentation contained in this repository are **NOT open-source**. Unauthorised copying, modification, distribution, reverse engineering, or commercial deployment of this codebase—in whole or in part—without express written permission from the copyright owner is strictly prohibited.
+**Notice to all users and visitors:**  
+**Guard AI** is proprietary software owned exclusively by **Saad Bilal**.  
+The source code, architecture, design assets, and documentation contained in this repository are **NOT open-source**. Unauthorised copying, modification, distribution, reverse engineering, or commercial deployment of this codebase—in whole or in part—without express written permission from the copyright owner is strictly prohibited.
 >
-> 🌐 **Public Live Demo & Documentation:** [https://saadbilal.github.io/guardai/](https://saadbilal.github.io/guardai/)  
-> ✉️ **Commercial Licensing & Inquiries:** Contact Saad Bilal via [LinkedIn](https://www.linkedin.com/in/saadbilal/) or [Portfolio](https://saadbilal.vercel.app/)
+🌐 **Public Live Demo & Documentation:** [https://saadbilal.github.io/guardai/](https://saadbilal.github.io/guardai/)  
+✉️ **Commercial Licensing & Inquiries:** Contact Saad Bilal via [LinkedIn](https://www.linkedin.com/in/saadbilal/) or [Portfolio](https://saadbilal.vercel.app/)
 
 ---
 
