@@ -1,7 +1,14 @@
 <!-- GUARD AI PROPRIETARY HEADER -->
 <div align="center">
 
-# 🛡️ Guard AI
+  <!-- Guard AI SVG Logo -->
+
+  <!-- Guard AI Referenced SVG Logo -->
+  <a href="https://saadbilal.github.io/guardai/">
+    <img src="favicon.svg" alt="Guard AI Logo" width="130" height="130" />
+  </a>
+
+# Guard AI
 ### Enterprise Zero-Trust AI Proxy & EU Compliance Engine
 > **Developer-First Zero-Trust API Proxy & Real-Time EU AI Act Compliance Engine**
 
