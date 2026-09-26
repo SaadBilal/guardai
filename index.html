@@ -4,15 +4,14 @@
 <!-- Official Website: https://saadbilal.github.io/guardai/ -->
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Guard AI Proxy — Enterprise Governance & Control Center</title>
 
     <!-- Guard AI Favicon & Branding -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<!--    <link rel="alternate icon" href="favicon.ico">-->
 
     <!-- OpenGraph / Social Media Metadata -->
     <meta property="og:title" content="Guard AI Proxy — Zero-Trust AI Governance Gateway">
@@ -33,6 +32,7 @@
         body {
             background-color: #07090e;
             font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            overflow-x: hidden;
         }
         .glass {
             background: rgba(15, 23, 42, 0.75);
@@ -44,11 +44,18 @@
             box-shadow: 0 0 25px -5px rgba(56, 189, 248, 0.15);
         }
 
+        /* Prevent auto-zoom on iOS inputs without impacting desktop */
+        @media screen and (max-width: 768px) {
+            input, textarea, select {
+                font-size: 16px !important;
+            }
+        }
+
         /* Video Hero Feature Styles */
         .guard-video-hero-container {
             width: 100%;
             max-width: 1200px;
-            margin: 1.5rem auto;
+            margin: 1rem auto;
             box-sizing: border-box;
         }
 
@@ -56,13 +63,20 @@
             position: relative;
             background: rgba(15, 23, 42, 0.85);
             border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 24px;
-            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            padding: 1.5rem 1.25rem;
             overflow: hidden;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4),
                         0 0 0 1px rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
+        }
+
+        @media (min-width: 768px) {
+            .guard-video-card {
+                border-radius: 24px;
+                padding: 2.5rem 2rem;
+            }
         }
 
         .glow-sphere {
@@ -92,15 +106,15 @@
             position: relative;
             z-index: 1;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2.5rem;
+            grid-template-columns: 1fr;
+            gap: 1.75rem;
             align-items: center;
         }
 
-        @media (max-width: 968px) {
+        @media (min-width: 968px) {
             .guard-video-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+                grid-template-columns: 1fr 1fr;
+                gap: 2.5rem;
             }
         }
 
@@ -108,11 +122,11 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 6px 14px;
+            padding: 5px 12px;
             background: rgba(99, 102, 241, 0.12);
             border: 1px solid rgba(99, 102, 241, 0.3);
             border-radius: 100px;
-            margin-bottom: 1.25rem;
+            margin-bottom: 1rem;
         }
 
         .badge-dot {
@@ -125,17 +139,23 @@
 
         .badge-text {
             color: #a5b4fc;
-            font-size: 0.85rem;
+            font-size: 0.78rem;
             font-weight: 600;
             letter-spacing: 0.02em;
         }
 
         .guard-video-title {
             color: #ffffff;
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 800;
-            line-height: 1.2;
-            margin: 0 0 1rem 0;
+            line-height: 1.25;
+            margin: 0 0 0.75rem 0;
+        }
+
+        @media (min-width: 640px) {
+            .guard-video-title {
+                font-size: 2rem;
+            }
         }
 
         .gradient-text {
@@ -146,36 +166,51 @@
 
         .guard-video-description {
             color: #94a3b8;
-            font-size: 0.95rem;
+            font-size: 0.875rem;
             line-height: 1.6;
-            margin: 0 0 1.5rem 0;
+            margin: 0 0 1.25rem 0;
         }
 
         .guard-metrics-row {
-            display: flex;
-            gap: 0.75rem;
-            margin-bottom: 1.75rem;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 640px) {
+            .guard-metrics-row {
+                display: flex;
+                gap: 0.75rem;
+            }
         }
 
         .metric-pill {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 12px;
-            padding: 8px 14px;
+            padding: 8px 10px;
             display: flex;
             flex-direction: column;
+            text-align: center;
+        }
+
+        @media (min-width: 640px) {
+            .metric-pill {
+                text-align: left;
+                padding: 8px 14px;
+            }
         }
 
         .metric-value {
             color: #38bdf8;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
 
         .metric-label {
             color: #64748b;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -183,17 +218,25 @@
 
         .guard-video-cta {
             display: inline-flex;
+            justify-content: center;
             align-items: center;
+            width: 100%;
             gap: 10px;
             background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
             color: #ffffff;
             font-weight: 600;
-            padding: 10px 20px;
+            padding: 12px 20px;
             border-radius: 12px;
             text-decoration: none;
             font-size: 0.875rem;
             box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
             transition: all 0.2s ease-in-out;
+        }
+
+        @media (min-width: 640px) {
+            .guard-video-cta {
+                width: auto;
+            }
         }
 
         .guard-video-cta:hover {
@@ -206,7 +249,7 @@
             position: relative;
             background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(56, 189, 248, 0.1));
             padding: 3px;
-            border-radius: 18px;
+            border-radius: 16px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
         }
 
@@ -215,7 +258,7 @@
             width: 100%;
             padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
             height: 0;
-            border-radius: 15px;
+            border-radius: 13px;
             overflow: hidden;
             background: #000000;
         }
@@ -230,13 +273,13 @@
         }
     </style>
 </head>
-<body class="text-slate-200 min-h-screen flex flex-col justify-between">
+<body class="text-slate-200 min-h-screen flex flex-col justify-between antialiased">
 
     <!-- Navigation Header -->
-    <nav class="border-b border-slate-800/80 bg-slate-950/90 sticky top-0 z-50 backdrop-blur-md px-6 md:px-8 py-4 flex items-center justify-between">
-        <div class="flex items-center space-x-3">
+    <nav class="border-b border-slate-800/80 bg-slate-950/95 sticky top-0 z-50 backdrop-blur-md px-4 sm:px-6 md:px-8 py-3.5 flex items-center justify-between">
+        <div class="flex items-center space-x-2.5 sm:space-x-3">
             <!-- Guard AI Inline SVG Logo -->
-            <div class="w-20 h-20 flex-shrink-0">
+            <div class="w-8 h-8 sm:w-10 sm:h-10 flex-shrink-0">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" class="w-full h-full drop-shadow-[0_0_12px_rgba(56,189,248,0.3)]">
                     <defs>
                         <linearGradient id="shieldStrokeNav" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -279,16 +322,18 @@
                 </svg>
             </div>
             <div>
-                <h1 class="font-bold text-lg text-white tracking-wide flex items-center gap-2">
+                <h1 class="font-bold text-base sm:text-lg text-white tracking-wide flex items-center gap-1.5 sm:gap-2">
                     GUARD AI
-                    <span class="text-sky-400 text-xs font-mono px-2 py-0.5 rounded bg-sky-950 border border-sky-800">PHASE 2</span>
+                    <span class="text-sky-400 text-[10px] sm:text-xs font-mono px-1.5 py-0.5 rounded bg-sky-950 border border-sky-800">PHASE 2</span>
                 </h1>
                 <p class="text-xs text-slate-400 hidden sm:block">Zero-Trust AI Proxy & EU Regulatory Compliance Gateway</p>
             </div>
         </div>
-        <div class="flex items-center space-x-3 md:space-x-4">
-            <a href="#compliance" class="text-xs font-mono text-slate-300 hover:text-sky-400 transition hidden md:inline">EU Compliance</a>
-            <a href="#roadmap" class="text-xs font-mono text-slate-300 hover:text-sky-400 transition hidden md:inline">Phase 2 Roadmap</a>
+
+        <!-- Desktop Links (Unchanged for laptop displays) -->
+        <div class="hidden md:flex items-center space-x-4">
+            <a href="#compliance" class="text-xs font-mono text-slate-300 hover:text-sky-400 transition">EU Compliance</a>
+            <a href="#roadmap" class="text-xs font-mono text-slate-300 hover:text-sky-400 transition">Phase 2 Roadmap</a>
             <a href="#playground" class="text-xs font-mono text-sky-400 border border-sky-800/80 px-3 py-1.5 rounded-lg bg-sky-950/40 hover:bg-sky-900/50 transition">
                 <i class="fa-solid fa-flask text-xs mr-1"></i> Playground
             </a>
@@ -296,20 +341,38 @@
                 <i class="fa-solid fa-book-bookmark text-xs mr-1"></i> API Docs
             </a>
         </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <div class="flex items-center space-x-2 md:hidden">
+            <a href="#playground" class="text-xs font-mono text-sky-400 border border-sky-800/80 px-2.5 py-1.5 rounded-lg bg-sky-950/40">
+                <i class="fa-solid fa-flask text-xs"></i>
+            </a>
+            <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="p-2 text-slate-300 hover:text-white focus:outline-none" aria-label="Toggle Navigation Menu">
+                <i class="fa-solid fa-bars text-lg" id="menuIcon"></i>
+            </button>
+        </div>
     </nav>
 
+    <!-- Mobile Drawer Dropdown -->
+    <div id="mobileDrawer" class="hidden md:hidden bg-slate-950/95 border-b border-slate-800 px-6 py-4 space-y-3 sticky top-[57px] z-40 backdrop-blur-md">
+        <a href="#compliance" onclick="toggleMobileMenu()" class="block text-sm font-mono text-slate-300 hover:text-sky-400 py-1"><i class="fa-solid fa-scale-balanced text-sky-400 mr-2"></i> EU Compliance</a>
+        <a href="#playground" onclick="toggleMobileMenu()" class="block text-sm font-mono text-slate-300 hover:text-sky-400 py-1"><i class="fa-solid fa-flask text-teal-400 mr-2"></i> Playground</a>
+        <a href="#roadmap" onclick="toggleMobileMenu()" class="block text-sm font-mono text-slate-300 hover:text-sky-400 py-1"><i class="fa-solid fa-diagram-project text-sky-400 mr-2"></i> Phase 2 Roadmap</a>
+        <a href="docs.html" onclick="toggleMobileMenu()" class="block text-sm font-mono text-slate-300 hover:text-sky-400 py-1"><i class="fa-solid fa-book-bookmark text-slate-400 mr-2"></i> API Docs</a>
+    </div>
+
     <!-- Main Container -->
-    <main class="max-w-7xl w-full mx-auto p-6 md:p-8 space-y-12">
+    <main class="max-w-7xl w-full mx-auto px-4 sm:px-6 md:px-8 py-6 md:py-8 space-y-8 md:space-y-12">
 
         <!-- Hero Title Section -->
-        <section class="text-center space-y-4 pt-4">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-sky-400 text-xs font-mono">
+        <section class="text-center space-y-3 sm:space-y-4 pt-2 sm:pt-4">
+            <div class="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-sky-400 text-[11px] sm:text-xs font-mono">
                 <i class="fa-solid fa-bolt"></i> Sub-15ms Latency | Zero Data Retention
             </div>
-            <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
+            <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
                 Sovereign AI Security for <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-teal-300">European Enterprises</span>
             </h1>
-            <p class="text-slate-400 max-w-2xl mx-auto text-sm leading-relaxed">
+            <p class="text-slate-400 max-w-2xl mx-auto text-xs sm:text-sm leading-relaxed px-2">
                 Guard AI sits as a zero-trust gateway between application frontends and frontier LLM backends—enforcing dynamic PII scrubbing, cryptographic event audit logging, and cross-tenant vector database isolation.
             </p>
         </section>
@@ -342,15 +405,15 @@
                         <div class="guard-metrics-row">
                             <div class="metric-pill">
                                 <span class="metric-value">&lt;15ms</span>
-                                <span class="metric-label">Latency Overhead</span>
+                                <span class="metric-label">Latency</span>
                             </div>
                             <div class="metric-pill">
                                 <span class="metric-value">ZDR</span>
-                                <span class="metric-label">Zero Data Retention</span>
+                                <span class="metric-label">Zero Data</span>
                             </div>
                             <div class="metric-pill">
                                 <span class="metric-value">SHA-256</span>
-                                <span class="metric-label">Audit Hashing</span>
+                                <span class="metric-label">Hashing</span>
                             </div>
                         </div>
 
@@ -364,7 +427,7 @@
                         </a>
                     </div>
 
-                    <!-- Right Column: Responsive Video Embed Container -->
+                    <!-- Right Column: Video Embed Container -->
                     <div class="guard-video-wrapper-outer">
                         <div class="guard-video-wrapper-inner">
                             <iframe
@@ -381,47 +444,47 @@
         </section>
 
         <!-- 1. EU Regulatory Compliance & Legal Alignment Section -->
-        <section id="compliance" class="space-y-6 pt-4">
-            <div class="border-b border-slate-800 pb-4">
-                <h2 class="text-xl font-bold text-white flex items-center gap-2">
+        <section id="compliance" class="space-y-4 sm:space-y-6 pt-2">
+            <div class="border-b border-slate-800 pb-3 sm:pb-4">
+                <h2 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
                     <i class="fa-solid fa-scale-balanced text-sky-400"></i> EU Regulatory Alignment & Legal Framework
                 </h2>
                 <p class="text-xs text-slate-400">Engineered to comply with strict European Union AI governance laws and data privacy directives.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
                 <!-- EU AI Act Art 12 -->
-                <div class="glass p-6 rounded-2xl space-y-3 relative overflow-hidden">
-                    <div class="text-xs font-mono text-sky-400 font-bold">EU AI ACT — ARTICLE 12</div>
-                    <h3 class="text-base font-semibold text-white">Record-Keeping & Traceability</h3>
+                <div class="glass p-5 sm:p-6 rounded-2xl space-y-3 relative overflow-hidden">
+                    <div class="text-[11px] sm:text-xs font-mono text-sky-400 font-bold">EU AI ACT — ARTICLE 12</div>
+                    <h3 class="text-sm sm:text-base font-semibold text-white">Record-Keeping & Traceability</h3>
                     <p class="text-xs text-slate-400 leading-relaxed">
                         Requires high-risk AI systems to automatically record event logs throughout their lifecycle to guarantee absolute operational auditability.
                     </p>
-                    <div class="bg-slate-950 p-3 rounded-xl border border-slate-800/80 text-xs font-mono text-teal-400">
+                    <div class="bg-slate-950 p-2.5 sm:p-3 rounded-xl border border-slate-800/80 text-[11px] sm:text-xs font-mono text-teal-400">
                         <i class="fa-solid fa-check text-xs mr-1"></i> SHA-256 Immutable Hash Audit Trail
                     </div>
                 </div>
 
                 <!-- EU AI Act Art 10 -->
-                <div class="glass p-6 rounded-2xl space-y-3 relative overflow-hidden">
-                    <div class="text-xs font-mono text-sky-400 font-bold">EU AI ACT — ARTICLE 10</div>
-                    <h3 class="text-base font-semibold text-white">Data Governance & Anonymization</h3>
+                <div class="glass p-5 sm:p-6 rounded-2xl space-y-3 relative overflow-hidden">
+                    <div class="text-[11px] sm:text-xs font-mono text-sky-400 font-bold">EU AI ACT — ARTICLE 10</div>
+                    <h3 class="text-sm sm:text-base font-semibold text-white">Data Governance & Anonymization</h3>
                     <p class="text-xs text-slate-400 leading-relaxed">
                         Mandates strict data management, privacy safeguards, and PII suppression before prompt payloads reach external inference models.
                     </p>
-                    <div class="bg-slate-950 p-3 rounded-xl border border-slate-800/80 text-xs font-mono text-teal-400">
+                    <div class="bg-slate-950 p-2.5 sm:p-3 rounded-xl border border-slate-800/80 text-[11px] sm:text-xs font-mono text-teal-400">
                         <i class="fa-solid fa-check text-xs mr-1"></i> Presidio + spaCy Real-Time PII Scrubbing
                     </div>
                 </div>
 
                 <!-- GDPR Art 5 & 32 -->
-                <div class="glass p-6 rounded-2xl space-y-3 relative overflow-hidden">
-                    <div class="text-xs font-mono text-sky-400 font-bold">GDPR — ARTICLE 5(1)(c) & 32</div>
-                    <h3 class="text-base font-semibold text-white">Data Minimization & Security</h3>
+                <div class="glass p-5 sm:p-6 rounded-2xl space-y-3 relative overflow-hidden">
+                    <div class="text-[11px] sm:text-xs font-mono text-sky-400 font-bold">GDPR — ARTICLE 5(1)(c) & 32</div>
+                    <h3 class="text-sm sm:text-base font-semibold text-white">Data Minimization & Security</h3>
                     <p class="text-xs text-slate-400 leading-relaxed">
                         Personal data must be strictly limited to processing requirements and protected against unauthorized multi-tenant exposure.
                     </p>
-                    <div class="bg-slate-950 p-3 rounded-xl border border-slate-800/80 text-xs font-mono text-teal-400">
+                    <div class="bg-slate-950 p-2.5 sm:p-3 rounded-xl border border-slate-800/80 text-[11px] sm:text-xs font-mono text-teal-400">
                         <i class="fa-solid fa-check text-xs mr-1"></i> Multi-Tenant Vector DB Context Isolation
                     </div>
                 </div>
@@ -429,68 +492,68 @@
         </section>
 
         <!-- 2. Interactive Testing Playground Section -->
-        <section id="playground" class="space-y-6 pt-4">
-            <div class="border-b border-slate-800 pb-4">
-                <h2 class="text-xl font-bold text-white flex items-center gap-2">
+        <section id="playground" class="space-y-4 sm:space-y-6 pt-2">
+            <div class="border-b border-slate-800 pb-3 sm:pb-4">
+                <h2 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
                     <i class="fa-solid fa-vial text-teal-400"></i> Interactive Security Playground
                 </h2>
                 <p class="text-xs text-slate-400">Test real-time PII anonymization and multi-tenant vector metadata injection in action.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                 <!-- Chat LLM Proxy Test -->
-                <div class="glass p-6 rounded-2xl space-y-4 glow">
-                    <h3 class="text-sm font-bold text-white flex items-center gap-2">
+                <div class="glass p-5 sm:p-6 rounded-2xl space-y-3.5 sm:space-y-4 glow">
+                    <h3 class="text-xs sm:text-sm font-bold text-white flex items-center gap-2">
                         <i class="fa-solid fa-user-shield text-teal-400"></i> 1. LLM Chat Proxy + PII Scrubber
                     </h3>
                     <p class="text-xs text-slate-400">Tests Presidio NLP anonymization before prompts are forwarded upstream.</p>
-                    <textarea id="chatInput" rows="4" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs font-mono text-slate-200 focus:outline-none focus:border-sky-500 transition">Please verify refund for Saad Bilal (saad.bilal@enterprise.com).</textarea>
-                    <button onclick="testChatProxy()" class="w-full bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold py-2.5 rounded-xl text-xs transition shadow-lg">
+                    <textarea id="chatInput" rows="3" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs font-mono text-slate-200 focus:outline-none focus:border-sky-500 transition">Please verify refund for Saad Bilal (saad.bilal@enterprise.com).</textarea>
+                    <button onclick="testChatProxy()" class="w-full bg-sky-500 hover:bg-sky-400 active:bg-sky-600 text-slate-950 font-bold py-3 rounded-xl text-xs transition shadow-lg touch-manipulation">
                         Execute Chat Proxy
                     </button>
                 </div>
 
                 <!-- Vector DB Isolation Test -->
-                <div class="glass p-6 rounded-2xl space-y-4 glow">
-                    <h3 class="text-sm font-bold text-white flex items-center gap-2">
+                <div class="glass p-5 sm:p-6 rounded-2xl space-y-3.5 sm:space-y-4 glow">
+                    <h3 class="text-xs sm:text-sm font-bold text-white flex items-center gap-2">
                         <i class="fa-solid fa-layer-group text-sky-400"></i> 2. Multi-Tenant Vector DB Isolation
                     </h3>
                     <p class="text-xs text-slate-400">Injects tenant metadata filters to prevent cross-client data leakage in RAG.</p>
                     <input id="vectorTenant" type="text" value="tenant-saad-corp" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs font-mono text-slate-200 focus:outline-none focus:border-sky-500" />
                     <textarea id="vectorInput" rows="2" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-xs font-mono text-slate-200 focus:outline-none focus:border-sky-500">Fetch Q3 budget reports</textarea>
-                    <button onclick="testVectorProxy()" class="w-full bg-teal-400 hover:bg-teal-300 text-slate-950 font-bold py-2.5 rounded-xl text-xs transition shadow-lg">
+                    <button onclick="testVectorProxy()" class="w-full bg-teal-400 hover:bg-teal-300 active:bg-teal-500 text-slate-950 font-bold py-3 rounded-xl text-xs transition shadow-lg touch-manipulation">
                         Execute Vector Query
                     </button>
                 </div>
             </div>
 
             <!-- Output Console -->
-            <div class="glass p-6 rounded-2xl space-y-2">
+            <div class="glass p-4 sm:p-6 rounded-2xl space-y-2">
                 <div class="flex items-center justify-between">
-                    <h3 class="text-xs font-mono text-slate-400">PROXY RESPONSE JSON OUTPUT</h3>
+                    <h3 class="text-[11px] sm:text-xs font-mono text-slate-400">PROXY RESPONSE JSON OUTPUT</h3>
                     <span class="text-[10px] font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">LIVE INTERCEPT</span>
                 </div>
-                <pre id="outputConsole" class="bg-slate-950 border border-slate-800 p-4 rounded-xl font-mono text-xs text-slate-300 overflow-x-auto min-h-[140px]">// Response logs will stream here...</pre>
+                <pre id="outputConsole" class="bg-slate-950 border border-slate-800 p-3 sm:p-4 rounded-xl font-mono text-[11px] sm:text-xs text-slate-300 overflow-x-auto min-h-[140px]">// Response logs will stream here...</pre>
             </div>
         </section>
 
         <!-- 3. Development Roadmap & Funding Objectives Section -->
-        <section id="roadmap" class="space-y-6 pt-4">
-            <div class="border-b border-slate-800 pb-4">
-                <h2 class="text-xl font-bold text-white flex items-center gap-2">
+        <section id="roadmap" class="space-y-4 sm:space-y-6 pt-2">
+            <div class="border-b border-slate-800 pb-3 sm:pb-4">
+                <h2 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2">
                     <i class="fa-solid fa-diagram-project text-sky-400"></i> Phase 2 Roadmap & Funding Objectives
                 </h2>
                 <p class="text-xs text-slate-400">Transitioning from proxy prototype to enterprise-grade database security middleware.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                 <!-- Delivered: Phase 1 -->
-                <div class="glass p-6 rounded-2xl space-y-4 border-slate-800">
+                <div class="glass p-5 sm:p-6 rounded-2xl space-y-3.5 sm:space-y-4 border-slate-800">
                     <div class="flex items-center justify-between">
-                        <span class="text-xs font-mono text-teal-400 font-bold">COMPLETED</span>
-                        <span class="text-xs font-mono text-slate-400">Phase 1 Milestone</span>
+                        <span class="text-[11px] sm:text-xs font-mono text-teal-400 font-bold">COMPLETED</span>
+                        <span class="text-[11px] sm:text-xs font-mono text-slate-400">Phase 1 Milestone</span>
                     </div>
-                    <h3 class="text-lg font-bold text-white">Proxy Architecture & PII Engine</h3>
+                    <h3 class="text-base sm:text-lg font-bold text-white">Proxy Architecture & PII Engine</h3>
                     <ul class="text-xs text-slate-300 space-y-2 font-mono">
                         <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-teal-400"></i> FastAPI Zero-Trust Reverse Proxy Engine</li>
                         <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-teal-400"></i> Presidio + spaCy Dynamic PII Anonymization</li>
@@ -500,12 +563,12 @@
                 </div>
 
                 <!-- Active: Phase 2 -->
-                <div class="glass p-6 rounded-2xl space-y-4 border-sky-800/60 bg-sky-950/20">
+                <div class="glass p-5 sm:p-6 rounded-2xl space-y-3.5 sm:space-y-4 border-sky-800/60 bg-sky-950/20">
                     <div class="flex items-center justify-between">
-                        <span class="text-xs font-mono text-sky-400 font-bold">IN DEVELOPMENT</span>
-                        <span class="text-xs font-mono text-sky-300">Phase 2 Target</span>
+                        <span class="text-[11px] sm:text-xs font-mono text-sky-400 font-bold">IN DEVELOPMENT</span>
+                        <span class="text-[11px] sm:text-xs font-mono text-sky-300">Phase 2 Target</span>
                     </div>
-                    <h3 class="text-lg font-bold text-white">Deep Vector Database Integration</h3>
+                    <h3 class="text-base sm:text-lg font-bold text-white">Deep Vector Database Integration</h3>
                     <ul class="text-xs text-slate-300 space-y-2 font-mono">
                         <li class="flex items-center gap-2"><i class="fa-solid fa-spinner animate-spin text-sky-400"></i> Native Adapters for Qdrant, pgvector & ChromaDB</li>
                         <li class="flex items-center gap-2"><i class="fa-solid fa-spinner animate-spin text-sky-400"></i> Automatic Metadata Injection for RAG Isolation</li>
@@ -516,16 +579,16 @@
             </div>
 
             <!-- Strategic Funding Banner -->
-            <div class="glass p-6 rounded-2xl border border-sky-800/80 bg-gradient-to-r from-sky-950/60 to-slate-950 flex flex-col md:flex-row items-center justify-between gap-6">
-                <div class="space-y-1">
-                    <h3 class="text-base font-bold text-white flex items-center gap-2">
+            <div class="glass p-5 sm:p-6 rounded-2xl border border-sky-800/80 bg-gradient-to-r from-sky-950/60 to-slate-950 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 sm:gap-6">
+                <div class="space-y-1 text-left">
+                    <h3 class="text-sm sm:text-base font-bold text-white flex items-center gap-2">
                         <i class="fa-solid fa-coins text-sky-400"></i> Strategic Seed Funding & Partner Program
                     </h3>
                     <p class="text-xs text-slate-400">
                         We are actively seeking strategic backing to accelerate Phase 2 production engineering and cloud deployment adapters.
                     </p>
                 </div>
-                <a href="https://github.com/saadbilal/guardai" target="_blank" class="px-5 py-2.5 bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-xs rounded-xl transition whitespace-nowrap">
+                <a href="https://github.com/saadbilal/guardai" target="_blank" class="text-center px-5 py-3 bg-sky-500 hover:bg-sky-400 active:bg-sky-600 text-slate-950 font-bold text-xs rounded-xl transition whitespace-nowrap touch-manipulation">
                     Review GitHub Repository
                 </a>
             </div>
@@ -535,18 +598,31 @@
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-slate-800/80 bg-slate-950 py-6 px-8 text-center text-xs text-slate-400 space-y-2">
+    <footer class="border-t border-slate-800/80 bg-slate-950 py-6 px-6 text-center text-xs text-slate-400 space-y-3 mt-8">
         <p>
             Designed by <a href="https://saadbilal.vercel.app/" target="_blank" class="text-sky-400 font-semibold hover:underline">Saad Bilal</a> — Senior Solution Architect
         </p>
-        <div class="flex justify-center space-x-4 text-slate-500">
-            <a href="https://github.com/saadbilal/guardai" target="_blank" class="hover:text-sky-400 transition"><i class="fa-brands fa-github text-sm"></i></a>
-            <a href="https://www.linkedin.com/in/saadbilal/" target="_blank" class="hover:text-sky-400 transition"><i class="fa-brands fa-linkedin text-sm"></i></a>
+        <div class="flex justify-center space-x-5 text-slate-500">
+            <a href="https://github.com/saadbilal/guardai" target="_blank" class="hover:text-sky-400 transition p-1"><i class="fa-brands fa-github text-base"></i></a>
+            <a href="https://www.linkedin.com/in/saadbilal/" target="_blank" class="hover:text-sky-400 transition p-1"><i class="fa-brands fa-linkedin text-base"></i></a>
         </div>
     </footer>
 
     <!-- Interactive Execution Scripts -->
     <script>
+        function toggleMobileMenu() {
+            const drawer = document.getElementById('mobileDrawer');
+            const icon = document.getElementById('menuIcon');
+            drawer.classList.toggle('hidden');
+            if (drawer.classList.contains('hidden')) {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            }
+        }
+
         async function testChatProxy() {
             const prompt = document.getElementById('chatInput').value;
             const output = document.getElementById('outputConsole');

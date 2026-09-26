@@ -1,16 +1,17 @@
-<!--# Guard AI Proxy — Zero-Trust AI Governance Engine-->
-<!--# Copyright (c) 2026 Saad Bilal. All Rights Reserved.-->
-<!--# Proprietary & Confidential. Unauthorized distribution or copying prohibited.-->
-<!--# Official Website: https://saadbilal.github.io/guardai/-->
+<!-- Guard AI Proxy — Zero-Trust AI Governance Engine -->
+<!-- Copyright (c) 2026 Saad Bilal. All Rights Reserved. -->
+<!-- Proprietary & Confidential. Unauthorized distribution or copying prohibited. -->
+<!-- Official Website: https://saadbilal.github.io/guardai/ -->
 
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <!-- Guard AI Favicon & Branding -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Guard AI Proxy — API Reference & Compliance Documentation</title>
+
+    <!-- Guard AI Favicon & Branding -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<!--    <link rel="alternate icon" href="favicon.ico">-->
 
     <!-- OpenGraph / Social Media Metadata -->
     <meta property="og:title" content="Guard AI Proxy — Zero-Trust AI Governance Gateway">
@@ -25,7 +26,6 @@
     <meta name="twitter:description" content="In-flight PII anonymization, multi-tenant RAG isolation, and EU AI Act compliance gateway.">
     <meta name="twitter:image" content="og-image.png">
 
-    <title>Guard AI Proxy — API Reference & Compliance Documentation</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
@@ -40,6 +40,7 @@
             background-color: #07090e;
             font-family: 'Inter', sans-serif;
             color: #cbd5e1;
+            overflow-x: hidden;
         }
         code, pre {
             font-family: 'JetBrains Mono', monospace;
@@ -47,13 +48,23 @@
         .glass {
             background: rgba(15, 23, 42, 0.75);
             backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
         .glass-card {
             background: rgba(15, 23, 42, 0.6);
             backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
+
+        /* Prevent auto-zoom on iOS inputs without impacting desktop */
+        @media screen and (max-width: 768px) {
+            input, textarea, select {
+                font-size: 16px !important;
+            }
+        }
+
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 6px;
@@ -78,11 +89,12 @@
 </head>
 <body class="min-h-screen flex flex-col justify-between antialiased">
 
+    <!-- Navigation Header -->
     <nav class="border-b border-slate-800/80 bg-slate-950/90 sticky top-0 z-50 backdrop-blur-md px-4 lg:px-8 py-3.5 flex items-center justify-between">
-        <div class="flex items-center space-x-3">
-            <a href="index.html" class="flex items-center space-x-3 group">
+        <div class="flex items-center space-x-2.5 sm:space-x-3">
+            <a href="index.html" class="flex items-center space-x-2.5 sm:space-x-3 group">
                 <!-- Guard AI Inline SVG Logo -->
-                <div class="w-20 h-20 flex-shrink-0">
+                <div class="w-8 h-8 sm:w-10 sm:h-10 flex-shrink-0">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" class="w-full h-full drop-shadow-[0_0_12px_rgba(56,189,248,0.3)]">
                         <defs>
                             <linearGradient id="shieldStrokeNav" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -125,18 +137,17 @@
                     </svg>
                 </div>
                 <div>
-                    <h1 class="font-bold text-base text-white tracking-wide flex items-center gap-2">
-                        GUARD AI <span class="text-sky-400 text-[10px] font-mono px-2 py-0.5 rounded bg-sky-950/80 border border-sky-800">API DOCS</span>
+                    <h1 class="font-bold text-base text-white tracking-wide flex items-center gap-1.5 sm:gap-2">
+                        GUARD AI <span class="text-sky-400 text-[10px] font-mono px-1.5 sm:px-2 py-0.5 rounded bg-sky-950/80 border border-sky-800">API DOCS</span>
                     </h1>
                     <p class="text-[11px] text-slate-400 hidden sm:block">Sovereign Zero-Trust AI Reverse Proxy & EU Gateway</p>
                 </div>
             </a>
         </div>
 
-        <!-- Header Actions -->
-
-        <div class="flex items-center space-x-3 text-xs font-mono">
-            <a href="index.html" class="hidden sm:flex items-center gap-1.5 text-slate-300 hover:text-sky-400 border border-slate-800 px-3 py-1.5 rounded-lg bg-slate-900/50 transition">
+        <!-- Header Actions (Desktop Links Unchanged for Laptop Displays) -->
+        <div class="hidden md:flex items-center space-x-3 text-xs font-mono">
+            <a href="index.html#playground" class="hidden sm:flex items-center gap-1.5 text-slate-300 hover:text-sky-400 border border-slate-800 px-3 py-1.5 rounded-lg bg-slate-900/50 transition">
                 <i class="fa-solid fa-flask text-sky-400"></i> Playground
             </a>
             <a href="https://github.com/saadbilal/guardai" target="_blank" class="flex items-center gap-1.5 text-slate-300 hover:text-white border border-slate-800 px-3 py-1.5 rounded-lg bg-slate-900/50 transition">
@@ -145,17 +156,44 @@
             <a href="https://saadbilal.vercel.app/" target="_blank" class="hidden md:flex items-center gap-1 text-sky-400 border border-sky-900/60 px-3 py-1.5 rounded-lg bg-sky-950/30 hover:bg-sky-900/40 transition">
                 <span>Saad Bilal</span> <i class="fa-solid fa-arrow-up-right-from-square text-[10px] ml-1"></i>
             </a>
-
             <a href="index.html" class="text-xs font-mono text-slate-300 border border-slate-800 px-3 py-1.5 rounded-lg hover:border-sky-500 hover:text-sky-400 transition">
                 <i class="fa-solid fa-arrow-left text-xs mr-1"></i> Back to Control Center
             </a>
         </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <div class="flex items-center space-x-2 md:hidden">
+            <a href="index.html" class="text-xs font-mono text-slate-300 border border-slate-800 px-2.5 py-1.5 rounded-lg hover:text-sky-400">
+                <i class="fa-solid fa-arrow-left text-xs"></i>
+            </a>
+            <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="p-2 text-slate-300 hover:text-white focus:outline-none" aria-label="Toggle Navigation Menu">
+                <i class="fa-solid fa-bars text-lg" id="menuIcon"></i>
+            </button>
+        </div>
     </nav>
 
-    <div class="max-w-7xl w-full mx-auto px-4 lg:px-8 py-8 flex-1 flex flex-col md:flex-row gap-8">
+    <!-- Mobile Drawer Dropdown -->
+    <div id="mobileDrawer" class="hidden md:hidden bg-slate-950/95 border-b border-slate-800 px-6 py-4 space-y-3 sticky top-[57px] z-40 backdrop-blur-md">
+        <div class="text-[10px] font-mono uppercase tracking-wider text-slate-400 font-semibold mb-1">Documentation Menu</div>
+        <a href="#overview" onclick="toggleMobileMenu()" class="block text-sm font-mono text-slate-300 hover:text-sky-400 py-1"><i class="fa-solid fa-compass text-slate-500 mr-2"></i> Overview & Architecture</a>
+        <a href="#authentication" onclick="toggleMobileMenu()" class="block text-sm font-mono text-slate-300 hover:text-sky-400 py-1"><i class="fa-solid fa-key text-slate-500 mr-2"></i> Headers & Multi-Tenancy</a>
+        <a href="#chat-completions" onclick="toggleMobileMenu()" class="block text-sm font-mono text-slate-300 hover:text-sky-400 py-1"><span class="text-[9px] bg-sky-950 text-sky-400 px-1.5 py-0.5 rounded border border-sky-800 mr-2">POST</span> /v1/chat/completions</a>
+        <a href="#vector-search" onclick="toggleMobileMenu()" class="block text-sm font-mono text-slate-300 hover:text-sky-400 py-1"><span class="text-[9px] bg-teal-950 text-teal-400 px-1.5 py-0.5 rounded border border-teal-800 mr-2">POST</span> /v1/vector/search</a>
+        <a href="#audit-logs" onclick="toggleMobileMenu()" class="block text-sm font-mono text-slate-300 hover:text-sky-400 py-1"><span class="text-[9px] bg-emerald-950 text-emerald-400 px-1.5 py-0.5 rounded border border-emerald-800 mr-2">GET</span> /v1/audit/logs</a>
+        <a href="#sdks" onclick="toggleMobileMenu()" class="block text-sm font-mono text-slate-300 hover:text-sky-400 py-1"><i class="fa-solid fa-code text-slate-500 mr-2"></i> SDK & Integration</a>
+        <a href="#compliance-matrix" onclick="toggleMobileMenu()" class="block text-sm font-mono text-slate-300 hover:text-sky-400 py-1"><i class="fa-solid fa-scale-balanced text-slate-500 mr-2"></i> EU Regulatory Mapping</a>
+        <a href="#phase2-roadmap" onclick="toggleMobileMenu()" class="block text-sm font-mono text-slate-300 hover:text-sky-400 py-1"><i class="fa-solid fa-layer-group text-slate-500 mr-2"></i> Phase 2 Roadmap</a>
+        <div class="pt-2 border-t border-slate-800 flex items-center justify-between text-xs">
+            <a href="https://github.com/saadbilal/guardai" target="_blank" class="text-slate-300 hover:text-white"><i class="fa-brands fa-github mr-1"></i> GitHub</a>
+            <a href="index.html#playground" class="text-sky-400"><i class="fa-solid fa-flask mr-1"></i> Playground</a>
+        </div>
+    </div>
 
-        <!-- Sidebar Navigation -->
-        <aside class="w-full md:w-64 flex-shrink-0">
+    <!-- Main Container -->
+    <div class="max-w-7xl w-full mx-auto px-4 lg:px-8 py-6 md:py-8 flex-1 flex flex-col md:flex-row gap-8">
+
+        <!-- Sidebar Navigation (Desktop / Laptop Unchanged) -->
+        <aside class="w-full md:w-64 flex-shrink-0 hidden md:block">
             <div class="sticky top-20 glass p-4 rounded-2xl space-y-6">
                 <div>
                     <div class="text-[10px] font-mono uppercase tracking-wider text-slate-400 font-semibold px-3 mb-2">Getting Started</div>
@@ -185,17 +223,18 @@
             </div>
         </aside>
 
-        <main class="flex-1 space-y-12 min-w-0">
+        <!-- Main Content Column -->
+        <main class="flex-1 space-y-10 md:space-y-12 min-w-0">
 
             <!-- Section: Overview -->
-            <section id="overview" class="space-y-4 pt-2">
+            <section id="overview" class="space-y-3.5 sm:space-y-4 pt-2">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-sky-400 text-xs font-mono">
                     <i class="fa-solid fa-circle-check"></i> OpenAPI 3.0 Compatible Gateway
                 </div>
-                <h1 class="text-2xl md:text-4xl font-extrabold text-white tracking-tight">
+                <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight">
                     Guard AI Proxy API Reference
                 </h1>
-                <p class="text-slate-400 text-sm leading-relaxed">
+                <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
                     Guard AI Proxy operates as a developer-first reverse proxy designed to sit between application frontends and frontier LLM backends (OpenAI, Anthropic, Vector DBs). It guarantees zero data exposure through in-memory PII scrubbing, context-level multi-tenant vector isolation, and cryptographic audit hashing under EU AI Act Article 12.
                 </p>
 
@@ -203,25 +242,25 @@
                 <div class="glass p-4 rounded-xl border border-slate-800/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                     <div>
                         <span class="text-[10px] font-mono text-slate-400 uppercase tracking-wider block">Production Gateway Endpoint</span>
-                        <code class="text-xs font-mono text-sky-300">https://saadbilal.github.io/guardai/v1</code>
+                        <code class="text-xs font-mono text-sky-300 break-all">https://saadbilal.github.io/guardai/v1</code>
                     </div>
-                    <span class="px-2.5 py-1 bg-emerald-950/80 text-emerald-400 border border-emerald-800 text-[11px] font-mono rounded-lg">
+                    <span class="px-2.5 py-1 bg-emerald-950/80 text-emerald-400 border border-emerald-800 text-[11px] font-mono rounded-lg whitespace-nowrap">
                         ● Operational (Latency &lt;15ms)
                     </span>
                 </div>
             </section>
 
             <!-- Section: Authentication & Tenant Context -->
-            <section id="authentication" class="space-y-4">
-                <h2 class="text-xl font-bold text-white flex items-center gap-2 border-b border-slate-800 pb-2">
+            <section id="authentication" class="space-y-3.5 sm:space-y-4">
+                <h2 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2 border-b border-slate-800 pb-2">
                     <i class="fa-solid fa-key text-sky-400 text-base"></i> Headers & Multi-Tenant Context
                 </h2>
                 <p class="text-xs text-slate-400 leading-relaxed">
                     Every request sent through Guard AI requires standard authentication headers along with a mandatory <code class="text-sky-300">X-Tenant-ID</code> header. This ID enforces strict multi-tenant context boundary constraints across downstream LLMs and Vector Search queries.
                 </p>
 
-                <div class="glass p-5 rounded-2xl overflow-x-auto">
-                    <table class="w-full text-left text-xs font-mono">
+                <div class="glass p-4 sm:p-5 rounded-2xl overflow-x-auto">
+                    <table class="w-full text-left text-xs font-mono min-w-[500px]">
                         <thead>
                             <tr class="text-slate-400 border-b border-slate-800 pb-2">
                                 <th class="pb-2 font-semibold">Header Name</th>
@@ -254,10 +293,11 @@
                 </div>
             </section>
 
-            <section id="chat-completions" class="space-y-4">
-                <div class="flex items-center gap-3 border-b border-slate-800 pb-2">
+            <!-- Section: POST /v1/chat/completions -->
+            <section id="chat-completions" class="space-y-3.5 sm:space-y-4">
+                <div class="flex items-center gap-2.5 sm:gap-3 border-b border-slate-800 pb-2 flex-wrap">
                     <span class="px-2.5 py-1 bg-sky-950 text-sky-400 border border-sky-800 text-xs font-mono font-bold rounded-lg">POST</span>
-                    <h2 class="text-xl font-bold text-white font-mono">/v1/chat/completions</h2>
+                    <h2 class="text-lg sm:text-xl font-bold text-white font-mono break-all">/v1/chat/completions</h2>
                 </div>
                 <p class="text-xs text-slate-400">
                     Intercepts chat completion requests, applies real-time Presidio NLP PII scrubbing on all user prompts, generates an EU AI Act Article 12 compliant audit hash, and forwards the scrubbed payload to downstream models.
@@ -270,12 +310,12 @@
                         <span class="text-slate-400 flex items-center gap-2">
                             <i class="fa-solid fa-code text-sky-400"></i> Request Payload Example
                         </span>
-                        <button onclick="copyCode('chatReqJson')" class="text-slate-400 hover:text-sky-400 transition text-[11px]">
+                        <button onclick="copyCode('chatReqJson')" class="text-slate-400 hover:text-sky-400 transition text-[11px] touch-manipulation">
                             <i class="fa-regular fa-copy"></i> Copy JSON
                         </button>
                     </div>
                     <!-- Code -->
-                    <pre id="chatReqJson" class="p-4 text-xs text-slate-300 bg-slate-950/40 overflow-x-auto"><code>{
+                    <pre id="chatReqJson" class="p-3.5 sm:p-4 text-[11px] sm:text-xs text-slate-300 bg-slate-950/40 overflow-x-auto"><code>{
   "model": "gpt-4o",
   "messages": [
     {
@@ -295,7 +335,7 @@
                         </span>
                         <span class="text-[10px] text-slate-500 font-mono">Latency: 11.4ms</span>
                     </div>
-                    <pre class="p-4 text-xs text-slate-300 bg-slate-950/40 overflow-x-auto"><code>{
+                    <pre class="p-3.5 sm:p-4 text-[11px] sm:text-xs text-slate-300 bg-slate-950/40 overflow-x-auto"><code>{
   "status": "success",
   "tenant_id": "tenant-saad-corp",
   "pii_engine": {
@@ -322,10 +362,11 @@
                 </div>
             </section>
 
-            <section id="vector-search" class="space-y-4">
-                <div class="flex items-center gap-3 border-b border-slate-800 pb-2">
+            <!-- Section: POST /v1/vector/search -->
+            <section id="vector-search" class="space-y-3.5 sm:space-y-4">
+                <div class="flex items-center gap-2.5 sm:gap-3 border-b border-slate-800 pb-2 flex-wrap">
                     <span class="px-2.5 py-1 bg-teal-950 text-teal-400 border border-teal-800 text-xs font-mono font-bold rounded-lg">POST</span>
-                    <h2 class="text-xl font-bold text-white font-mono">/v1/vector/search</h2>
+                    <h2 class="text-lg sm:text-xl font-bold text-white font-mono break-all">/v1/vector/search</h2>
                 </div>
                 <p class="text-xs text-slate-400">
                     Sits in front of multi-tenant Vector Databases (Qdrant, pgvector, ChromaDB). It dynamically injects a strict tenant metadata filter (<code class="text-teal-300">X-Tenant-ID</code>) into the query payload to prevent cross-tenant data leakage in RAG applications.
@@ -337,11 +378,11 @@
                         <span class="text-slate-400 flex items-center gap-2">
                             <i class="fa-solid fa-code text-teal-400"></i> Vector Query Payload
                         </span>
-                        <button onclick="copyCode('vectorReqJson')" class="text-slate-400 hover:text-teal-400 transition text-[11px]">
+                        <button onclick="copyCode('vectorReqJson')" class="text-slate-400 hover:text-teal-400 transition text-[11px] touch-manipulation">
                             <i class="fa-regular fa-copy"></i> Copy JSON
                         </button>
                     </div>
-                    <pre id="vectorReqJson" class="p-4 text-xs text-slate-300 bg-slate-950/40 overflow-x-auto"><code>{
+                    <pre id="vectorReqJson" class="p-3.5 sm:p-4 text-[11px] sm:text-xs text-slate-300 bg-slate-950/40 overflow-x-auto"><code>{
   "query": "Fetch Q3 marketing budgets",
   "top_k": 5
 }</code></pre>
@@ -355,7 +396,7 @@
                         </span>
                         <span class="text-[10px] text-slate-500 font-mono">Isolation: Enforced Strict</span>
                     </div>
-                    <pre class="p-4 text-xs text-slate-300 bg-slate-950/40 overflow-x-auto"><code>{
+                    <pre class="p-3.5 sm:p-4 text-[11px] sm:text-xs text-slate-300 bg-slate-950/40 overflow-x-auto"><code>{
   "status": "proxy_intercepted",
   "tenant_id": "tenant-saad-corp",
   "vector_db_action": "metadata_filter_injected",
@@ -379,10 +420,11 @@
                 </div>
             </section>
 
-            <section id="audit-logs" class="space-y-4">
-                <div class="flex items-center gap-3 border-b border-slate-800 pb-2">
+            <!-- Section: GET /v1/audit/logs -->
+            <section id="audit-logs" class="space-y-3.5 sm:space-y-4">
+                <div class="flex items-center gap-2.5 sm:gap-3 border-b border-slate-800 pb-2 flex-wrap">
                     <span class="px-2.5 py-1 bg-emerald-950 text-emerald-400 border border-emerald-800 text-xs font-mono font-bold rounded-lg">GET</span>
-                    <h2 class="text-xl font-bold text-white font-mono">/v1/audit/logs</h2>
+                    <h2 class="text-lg sm:text-xl font-bold text-white font-mono break-all">/v1/audit/logs</h2>
                 </div>
                 <p class="text-xs text-slate-400">
                     Retrieves immutable, SHA-256 hash-chained operational event logs required for external compliance audits under EU AI Act Article 12.
@@ -395,7 +437,7 @@
                         </span>
                         <span class="text-[10px] text-emerald-400">Article 12 Certified</span>
                     </div>
-                    <pre class="p-4 text-xs text-slate-300 bg-slate-950/40 overflow-x-auto"><code>{
+                    <pre class="p-3.5 sm:p-4 text-[11px] sm:text-xs text-slate-300 bg-slate-950/40 overflow-x-auto"><code>{
   "tenant_id": "tenant-saad-corp",
   "total_records": 1284,
   "audit_chain": [
@@ -411,8 +453,9 @@
                 </div>
             </section>
 
-            <section id="sdks" class="space-y-4">
-                <h2 class="text-xl font-bold text-white flex items-center gap-2 border-b border-slate-800 pb-2">
+            <!-- Section: SDKs & Code Examples -->
+            <section id="sdks" class="space-y-3.5 sm:space-y-4">
+                <h2 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2 border-b border-slate-800 pb-2">
                     <i class="fa-solid fa-code text-sky-400 text-base"></i> SDK & Client Integration Snippets
                 </h2>
                 <p class="text-xs text-slate-400">
@@ -422,18 +465,18 @@
                 <!-- Code Switcher Tabs -->
                 <div class="glass rounded-2xl overflow-hidden border border-slate-800">
                     <div class="bg-slate-950/90 px-4 py-2 border-b border-slate-800 flex items-center justify-between text-xs font-mono">
-                        <div class="flex space-x-2">
-                            <button onclick="switchTab('python')" id="tab-python" class="px-3 py-1 rounded-lg bg-sky-950 text-sky-400 border border-sky-800">Python</button>
-                            <button onclick="switchTab('curl')" id="tab-curl" class="px-3 py-1 rounded-lg text-slate-400 hover:text-white">cURL</button>
-                            <button onclick="switchTab('node')" id="tab-node" class="px-3 py-1 rounded-lg text-slate-400 hover:text-white">Node.js</button>
+                        <div class="flex space-x-1.5 sm:space-x-2">
+                            <button onclick="switchTab('python')" id="tab-python" class="px-2.5 sm:px-3 py-1 rounded-lg bg-sky-950 text-sky-400 border border-sky-800 text-[11px] sm:text-xs">Python</button>
+                            <button onclick="switchTab('curl')" id="tab-curl" class="px-2.5 sm:px-3 py-1 rounded-lg text-slate-400 hover:text-white text-[11px] sm:text-xs">cURL</button>
+                            <button onclick="switchTab('node')" id="tab-node" class="px-2.5 sm:px-3 py-1 rounded-lg text-slate-400 hover:text-white text-[11px] sm:text-xs">Node.js</button>
                         </div>
-                        <button onclick="copyCurrentSnippet()" class="text-slate-400 hover:text-sky-400 text-[11px]">
+                        <button onclick="copyCurrentSnippet()" class="text-slate-400 hover:text-sky-400 text-[11px] touch-manipulation">
                             <i class="fa-regular fa-copy"></i> Copy Snippet
                         </button>
                     </div>
 
                     <!-- Snippet Code Blocks -->
-                    <pre id="snippet-python" class="p-4 text-xs text-slate-300 bg-slate-950/40 overflow-x-auto"><code>import requests
+                    <pre id="snippet-python" class="p-3.5 sm:p-4 text-[11px] sm:text-xs text-slate-300 bg-slate-950/40 overflow-x-auto"><code>import requests
 
 url = "https://saadbilal.github.io/guardai/v1/chat/completions"
 headers = {
@@ -448,7 +491,7 @@ payload = {
 response = requests.post(url, json=payload, headers=headers)
 print(response.json())</code></pre>
 
-                    <pre id="snippet-curl" class="hidden p-4 text-xs text-slate-300 bg-slate-950/40 overflow-x-auto"><code>curl -X POST "https://saadbilal.github.io/guardai/v1/chat/completions" \
+                    <pre id="snippet-curl" class="hidden p-3.5 sm:p-4 text-[11px] sm:text-xs text-slate-300 bg-slate-950/40 overflow-x-auto"><code>curl -X POST "https://saadbilal.github.io/guardai/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-Tenant-ID: tenant-saad-corp" \
   -d '{
@@ -456,7 +499,7 @@ print(response.json())</code></pre>
     "messages": [{"role": "user", "content": "Contact Saad Bilal at saad.bilal@enterprise.com"}]
   }'</code></pre>
 
-                    <pre id="snippet-node" class="hidden p-4 text-xs text-slate-300 bg-slate-950/40 overflow-x-auto"><code>const fetch = require('node-fetch');
+                    <pre id="snippet-node" class="hidden p-3.5 sm:p-4 text-[11px] sm:text-xs text-slate-300 bg-slate-950/40 overflow-x-auto"><code>const fetch = require('node-fetch');
 
 async function runProxy() {
   const response = await fetch('https://saadbilal.github.io/guardai/v1/chat/completions', {
@@ -477,8 +520,9 @@ runProxy();</code></pre>
                 </div>
             </section>
 
-            <section id="compliance-matrix" class="space-y-4">
-                <h2 class="text-xl font-bold text-white flex items-center gap-2 border-b border-slate-800 pb-2">
+            <!-- Section: EU Regulatory Matrix -->
+            <section id="compliance-matrix" class="space-y-3.5 sm:space-y-4">
+                <h2 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2 border-b border-slate-800 pb-2">
                     <i class="fa-solid fa-scale-balanced text-sky-400 text-base"></i> EU Regulatory Alignment Matrix
                 </h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -500,11 +544,12 @@ runProxy();</code></pre>
                 </div>
             </section>
 
-            <section id="phase2-roadmap" class="space-y-4">
-                <h2 class="text-xl font-bold text-white flex items-center gap-2 border-b border-slate-800 pb-2">
+            <!-- Section: Phase 2 Roadmap -->
+            <section id="phase2-roadmap" class="space-y-3.5 sm:space-y-4">
+                <h2 class="text-lg sm:text-xl font-bold text-white flex items-center gap-2 border-b border-slate-800 pb-2">
                     <i class="fa-solid fa-layer-group text-sky-400 text-base"></i> Phase 2 Roadmap & Database Drivers
                 </h2>
-                <div class="glass p-6 rounded-2xl space-y-4 border-sky-800/60 bg-sky-950/20">
+                <div class="glass p-5 sm:p-6 rounded-2xl space-y-4 border-sky-800/60 bg-sky-950/20">
                     <p class="text-xs text-slate-300 leading-relaxed">
                         Phase 2 shifts Guard AI from prompt-level security to deep database-layer context enforcement:
                     </p>
@@ -519,18 +564,32 @@ runProxy();</code></pre>
         </main>
     </div>
 
-    <footer class="border-t border-slate-800/80 bg-slate-950 py-6 px-8 text-center text-xs text-slate-400 space-y-2 mt-12">
+    <!-- Footer -->
+    <footer class="border-t border-slate-800/80 bg-slate-950 py-6 px-6 sm:px-8 text-center text-xs text-slate-400 space-y-2 mt-8 md:mt-12">
         <p>
             Designed by <a href="https://saadbilal.vercel.app/" target="_blank" class="text-sky-400 font-semibold hover:underline">Saad Bilal</a> — Senior Solution Architect
         </p>
         <div class="flex justify-center space-x-4 text-slate-500">
-            <a href="https://github.com/saadbilal/guardai" target="_blank" class="hover:text-sky-400 transition"><i class="fa-brands fa-github text-sm"></i></a>
-            <a href="https://www.linkedin.com/in/saadbilal/" target="_blank" class="hover:text-sky-400 transition"><i class="fa-brands fa-linkedin text-sm"></i></a>
+            <a href="https://github.com/saadbilal/guardai" target="_blank" class="hover:text-sky-400 transition p-1"><i class="fa-brands fa-github text-sm"></i></a>
+            <a href="https://www.linkedin.com/in/saadbilal/" target="_blank" class="hover:text-sky-400 transition p-1"><i class="fa-brands fa-linkedin text-sm"></i></a>
         </div>
     </footer>
 
+    <!-- Interactive Scripts -->
     <script>
-        // Copy Code Helper
+        function toggleMobileMenu() {
+            const drawer = document.getElementById('mobileDrawer');
+            const icon = document.getElementById('menuIcon');
+            drawer.classList.toggle('hidden');
+            if (drawer.classList.contains('hidden')) {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            }
+        }
+
         function copyCode(elementId) {
             const text = document.getElementById(elementId).innerText;
             navigator.clipboard.writeText(text);
@@ -544,10 +603,10 @@ runProxy();</code></pre>
                 const btn = document.getElementById(`tab-${t}`);
                 const code = document.getElementById(`snippet-${t}`);
                 if (t === tab) {
-                    btn.className = "px-3 py-1 rounded-lg bg-sky-950 text-sky-400 border border-sky-800";
+                    btn.className = "px-2.5 sm:px-3 py-1 rounded-lg bg-sky-950 text-sky-400 border border-sky-800 text-[11px] sm:text-xs";
                     code.classList.remove('hidden');
                 } else {
-                    btn.className = "px-3 py-1 rounded-lg text-slate-400 hover:text-white";
+                    btn.className = "px-2.5 sm:px-3 py-1 rounded-lg text-slate-400 hover:text-white text-[11px] sm:text-xs";
                     code.classList.add('hidden');
                 }
             });
@@ -556,27 +615,6 @@ runProxy();</code></pre>
         function copyCurrentSnippet() {
             copyCode(`snippet-${currentTab}`);
         }
-
-        // Active link highlighting on scroll
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-link');
-
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 120) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('nav-active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('nav-active');
-                }
-            });
-        });
     </script>
 </body>
 </html>
