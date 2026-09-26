@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <defs>
+    <linearGradient id="shieldStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#14b8a6" />
+    </linearGradient>
+    <linearGradient id="aiCore" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#4f46e5" />
+    </linearGradient>
+  </defs>
+
+  <!-- Dark Background Container -->
+  <rect width="500" height="500" fill="#07090e" rx="100" />
+
+  <!-- Shield Base -->
+  <path d="M 250,70 L 380,120 C 380,290 295,395 250,430 C 205,395 120,290 120,120 Z"
+        fill="#0f172a" stroke="url(#shieldStroke)" stroke-width="16" stroke-linejoin="round" />
+
+  <!-- Circuit Network Lines -->
+  <g stroke="#334155" stroke-width="6" stroke-linecap="round">
+    <line x1="195" y1="160" x2="250" y2="215" />
+    <line x1="305" y1="160" x2="250" y2="215" />
+    <line x1="250" y1="275" x2="185" y2="320" />
+    <line x1="250" y1="275" x2="315" y2="320" />
+  </g>
+
+  <!-- Circuit Nodes -->
+  <circle cx="195" cy="160" r="10" fill="#38bdf8" />
+  <circle cx="305" cy="160" r="10" fill="#38bdf8" />
+  <circle cx="185" cy="320" r="10" fill="#14b8a6" />
+  <circle cx="315" cy="320" r="10" fill="#14b8a6" />
+
+  <!-- Core "G" Lock Monogram -->
+  <path d="M 290,200 C 220,180 180,220 180,265 C 180,312 225,338 275,320 C 295,312 300,292 300,278 L 245,278"
+        fill="none" stroke="url(#aiCore)" stroke-width="32" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Center Active Node -->
+  <circle cx="250" cy="242" r="14" fill="#38bdf8" />
+</svg>

@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="ogBg" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#07090e" />
+    </radialGradient>
+
+    <!-- Shield & Accent Gradients -->
+    <linearGradient id="shieldStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#14b8a6" />
+    </linearGradient>
+    <linearGradient id="aiCore" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#4f46e5" />
+    </linearGradient>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#2dd4bf" />
+    </linearGradient>
+  </defs>
+
+  <!-- Dark Background Layer -->
+  <rect width="1200" height="630" fill="url(#ogBg)" />
+
+  <!-- Background Decorative Grid Lines -->
+  <g stroke="#1e293b" stroke-width="1" opacity="0.4">
+    <path d="M 0,100 L 1200,100 M 0,200 L 1200,200 M 0,300 L 1200,300 M 0,400 L 1200,400 M 0,500 L 1200,500" />
+    <path d="M 200,0 L 200,630 M 400,0 L 400,630 M 600,0 L 600,630 M 800,0 L 800,630 M 1000,0 L 1000,630" />
+  </g>
+
+  <!-- Left Side: Logo Graphic -->
+  <g transform="translate(60, 45)">
+    <!-- Shield Container -->
+    <path d="M 200,70 L 330,120 C 330,290 245,395 200,430 C 155,395 70,290 70,120 Z"
+          fill="rgba(15, 23, 42, 0.85)" stroke="url(#shieldStroke)" stroke-width="12" stroke-linejoin="round" />
+
+    <!-- Circuit Network Lines -->
+    <g stroke="#334155" stroke-width="5" stroke-linecap="round">
+      <line x1="145" y1="160" x2="200" y2="215" />
+      <line x1="255" y1="160" x2="200" y2="215" />
+      <line x1="200" y1="275" x2="135" y2="320" />
+      <line x1="200" y1="275" x2="265" y2="320" />
+    </g>
+
+    <!-- Circuit Nodes -->
+    <circle cx="145" cy="160" r="8" fill="#38bdf8" />
+    <circle cx="255" cy="160" r="8" fill="#38bdf8" />
+    <circle cx="135" cy="320" r="8" fill="#14b8a6" />
+    <circle cx="265" cy="320" r="8" fill="#14b8a6" />
+
+    <!-- Core "G" Lock Monogram -->
+    <path d="M 240,200 C 170,180 130,220 130,265 C 130,312 175,338 225,320 C 245,312 250,292 250,278 L 195,278"
+          fill="none" stroke="url(#aiCore)" stroke-width="26" stroke-linecap="round" stroke-linejoin="round" />
+
+    <!-- Center Active Node -->
+    <circle cx="200" cy="242" r="11" fill="#38bdf8" />
+  </g>
+
+  <!-- Right Side: Marketing Copy & Typography -->
+  <g transform="translate(480, 160)">
+    <!-- Compliance Badge -->
+    <rect x="0" y="0" width="310" height="36" rx="18" fill="rgba(56, 189, 248, 0.1)" stroke="rgba(56, 189, 248, 0.3)" stroke-width="1" />
+    <circle cx="20" cy="18" r="5" fill="#10b981" />
+    <text x="36" y="23" fill="#38bdf8" font-family="Inter, sans-serif" font-size="13" font-weight="700" letter-spacing="1">EU AI ACT &amp; GDPR COMPLIANT</text>
+
+    <!-- Main Heading -->
+    <text x="0" y="100" fill="#ffffff" font-family="Inter, sans-serif" font-size="52" font-weight="900" letter-spacing="2">GUARD <tspan fill="url(#textGrad)">AI</tspan></text>
+    <text x="0" y="145" fill="#94a3b8" font-family="Inter, sans-serif" font-size="22" font-weight="600">Zero-Trust AI Proxy &amp; Security Gateway</text>
+
+    <!-- Value Proposition Bullet Points -->
+    <g transform="translate(0, 195)" fill="#e2e8f0" font-family="Inter, sans-serif" font-size="16" font-weight="500">
+      <text x="0" y="0"><tspan fill="#38bdf8">✓</tspan> Real-Time PII Scrubbing (&lt;15ms Latency)</text>
+      <text x="0" y="32"><tspan fill="#38bdf8">✓</tspan> Cryptographic SHA-256 Audit Trail Logging</text>
+      <text x="0" y="64"><tspan fill="#38bdf8">✓</tspan> Multi-Tenant Vector DB Isolation (RAG Shield)</text>
+    </g>
+  </g>
+
+  <!-- Footer Border & URL -->
+  <line x1="60" y1="560" x2="1140" y2="560" stroke="#1e293b" stroke-width="1" />
+  <text x="60" y="595" fill="#64748b" font-family="Inter, sans-serif" font-size="14" font-weight="600">saadbilal.github.io/guardai</text>
+  <text x="1140" y="595" text-anchor="end" fill="#64748b" font-family="Inter, sans-serif" font-size="14" font-weight="600">Open-Source Enterprise Gateway</text>
+</svg>
