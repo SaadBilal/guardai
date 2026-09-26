@@ -1,3 +1,9 @@
+# ------------------------------------------------------------------------------
+# Guard AI Proxy — Zero-Trust AI Governance Engine
+# Copyright (c) 2026 Saad Bilal. All Rights Reserved.
+# Proprietary & Confidential. Unauthorized distribution or copying prohibited.
+# Official Website: https://saadbilal.github.io/guardai/
+# ------------------------------------------------------------------------------
 import time
 import json
 import logging
