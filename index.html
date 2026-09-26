@@ -1,7 +1,7 @@
-<!--# Guard AI Proxy — Zero-Trust AI Governance Engine-->
-<!--# Copyright (c) 2026 Saad Bilal. All Rights Reserved.-->
-<!--# Proprietary & Confidential. Unauthorized distribution or copying prohibited.-->
-<!--# Official Website: https://saadbilal.github.io/guardai/-->
+<!-- Guard AI Proxy — Zero-Trust AI Governance Engine -->
+<!-- Copyright (c) 2026 Saad Bilal. All Rights Reserved. -->
+<!-- Proprietary & Confidential. Unauthorized distribution or copying prohibited. -->
+<!-- Official Website: https://saadbilal.github.io/guardai/ -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,15 +12,210 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        body { background-color: #07090e; font-family: 'Inter', sans-serif; }
-        .glass { background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
-        .glow { box-shadow: 0 0 25px -5px rgba(56, 189, 248, 0.15); }
+        body {
+            background-color: #07090e;
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        .glass {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glow {
+            box-shadow: 0 0 25px -5px rgba(56, 189, 248, 0.15);
+        }
+
+        /* Video Hero Feature Styles */
+        .guard-video-hero-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 1.5rem auto;
+            box-sizing: border-box;
+        }
+
+        .guard-video-card {
+            position: relative;
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 24px;
+            padding: 2.5rem 2rem;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4),
+                        0 0 0 1px rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        .glow-sphere {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: 0.25;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .glow-primary {
+            width: 300px;
+            height: 300px;
+            background: #6366f1;
+            top: -100px;
+            left: -50px;
+        }
+        .glow-secondary {
+            width: 250px;
+            height: 250px;
+            background: #06b6d4;
+            bottom: -80px;
+            right: -40px;
+        }
+
+        .guard-video-grid {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        @media (max-width: 968px) {
+            .guard-video-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        .guard-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            background: rgba(99, 102, 241, 0.12);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 100px;
+            margin-bottom: 1.25rem;
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #10b981;
+        }
+
+        .badge-text {
+            color: #a5b4fc;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+
+        .guard-video-title {
+            color: #ffffff;
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin: 0 0 1rem 0;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #a5b4fc 0%, #38bdf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .guard-video-description {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0 0 1.5rem 0;
+        }
+
+        .guard-metrics-row {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1.75rem;
+            flex-wrap: wrap;
+        }
+
+        .metric-pill {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 8px 14px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metric-value {
+            color: #38bdf8;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .metric-label {
+            color: #64748b;
+            font-size: 0.7rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .guard-video-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            color: #ffffff;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 0.875rem;
+            box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+            transition: all 0.2s ease-in-out;
+        }
+
+        .guard-video-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
+            background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+        }
+
+        .guard-video-wrapper-outer {
+            position: relative;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(56, 189, 248, 0.1));
+            padding: 3px;
+            border-radius: 18px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        }
+
+        .guard-video-wrapper-inner {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            border-radius: 15px;
+            overflow: hidden;
+            background: #000000;
+        }
+
+        .guard-video-wrapper-inner iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
     </style>
 </head>
 <body class="text-slate-200 min-h-screen flex flex-col justify-between">
 
     <!-- Navigation Header -->
-    <nav class="border-b border-slate-800/80 bg-slate-950/90 sticky top-0 z-50 backdrop-blur-md px-8 py-4 flex items-center justify-between">
+    <nav class="border-b border-slate-800/80 bg-slate-950/90 sticky top-0 z-50 backdrop-blur-md px-6 md:px-8 py-4 flex items-center justify-between">
         <div class="flex items-center space-x-3">
             <div class="bg-gradient-to-tr from-sky-500 to-teal-400 p-2.5 rounded-xl text-slate-950 font-bold">
                 <i class="fa-solid fa-shield-halved text-xl"></i>
@@ -30,25 +225,26 @@
                     GUARD AI
                     <span class="text-sky-400 text-xs font-mono px-2 py-0.5 rounded bg-sky-950 border border-sky-800">PHASE 2</span>
                 </h1>
-                <p class="text-xs text-slate-400">Zero-Trust AI Proxy & EU Regulatory Compliance Gateway</p>
+                <p class="text-xs text-slate-400 hidden sm:block">Zero-Trust AI Proxy & EU Regulatory Compliance Gateway</p>
             </div>
         </div>
-        <div class="flex items-center space-x-4">
-            <a href="#compliance" class="text-xs font-mono text-slate-300 hover:text-sky-400 transition">EU Compliance</a>
-            <a href="#roadmap" class="text-xs font-mono text-slate-300 hover:text-sky-400 transition">Phase 2 Roadmap</a>
+        <div class="flex items-center space-x-3 md:space-x-4">
+            <a href="#compliance" class="text-xs font-mono text-slate-300 hover:text-sky-400 transition hidden md:inline">EU Compliance</a>
+            <a href="#roadmap" class="text-xs font-mono text-slate-300 hover:text-sky-400 transition hidden md:inline">Phase 2 Roadmap</a>
             <a href="#playground" class="text-xs font-mono text-sky-400 border border-sky-800/80 px-3 py-1.5 rounded-lg bg-sky-950/40 hover:bg-sky-900/50 transition">
                 <i class="fa-solid fa-flask text-xs mr-1"></i> Playground
             </a>
             <a href="docs.html" class="text-xs font-mono text-slate-300 border border-slate-800 px-3 py-1.5 rounded-lg hover:border-sky-500 hover:text-sky-400 transition">
-        <i class="fa-solid fa-book-bookmark text-xs mr-1"></i> API Docs</a>
+                <i class="fa-solid fa-book-bookmark text-xs mr-1"></i> API Docs
+            </a>
         </div>
     </nav>
 
     <!-- Main Container -->
     <main class="max-w-7xl w-full mx-auto p-6 md:p-8 space-y-12">
 
-        <!-- Hero Section -->
-        <section class="text-center space-y-4 py-6">
+        <!-- Hero Title Section -->
+        <section class="text-center space-y-4 pt-4">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-sky-400 text-xs font-mono">
                 <i class="fa-solid fa-bolt"></i> Sub-15ms Latency | Zero Data Retention
             </div>
@@ -60,8 +256,74 @@
             </p>
         </section>
 
+        <!-- Product Intro Video Feature Card -->
+        <section class="guard-video-hero-container">
+            <div class="guard-video-card">
+
+                <!-- Ambient Glow Effects -->
+                <div class="glow-sphere glow-primary"></div>
+                <div class="glow-sphere glow-secondary"></div>
+
+                <div class="guard-video-grid">
+                    <!-- Left Column: Value Proposition & Copy -->
+                    <div class="guard-video-content">
+                        <div class="guard-badge">
+                            <span class="badge-dot"></span>
+                            <span class="badge-text">1-Minute Platform Overview</span>
+                        </div>
+
+                        <h2 class="guard-video-title">
+                            See <span class="gradient-text">Guard AI</span> in Action
+                        </h2>
+
+                        <p class="guard-video-description">
+                            Watch how our inline zero-trust proxy intercepts PII in real time, isolates multi-tenant RAG vector contexts, and generates cryptographically signed SHA-256 audit logs under 15ms.
+                        </p>
+
+                        <!-- Dynamic Metrics Pills -->
+                        <div class="guard-metrics-row">
+                            <div class="metric-pill">
+                                <span class="metric-value">&lt;15ms</span>
+                                <span class="metric-label">Latency Overhead</span>
+                            </div>
+                            <div class="metric-pill">
+                                <span class="metric-value">ZDR</span>
+                                <span class="metric-label">Zero Data Retention</span>
+                            </div>
+                            <div class="metric-pill">
+                                <span class="metric-value">SHA-256</span>
+                                <span class="metric-label">Audit Hashing</span>
+                            </div>
+                        </div>
+
+                        <!-- Call to Action Link -->
+                        <a href="#playground" class="guard-video-cta">
+                            <span>Try Interactive Playground</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- Right Column: Responsive Video Embed Container -->
+                    <div class="guard-video-wrapper-outer">
+                        <div class="guard-video-wrapper-inner">
+                            <iframe
+                                src="https://www.youtube.com/embed/fE1f7w2O2vE?rel=0&modestbranding=1"
+                                title="Guard AI Overview & Product Demo"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
         <!-- 1. EU Regulatory Compliance & Legal Alignment Section -->
-        <section id="compliance" class="space-y-6">
+        <section id="compliance" class="space-y-6 pt-4">
             <div class="border-b border-slate-800 pb-4">
                 <h2 class="text-xl font-bold text-white flex items-center gap-2">
                     <i class="fa-solid fa-scale-balanced text-sky-400"></i> EU Regulatory Alignment & Legal Framework
@@ -109,7 +371,7 @@
         </section>
 
         <!-- 2. Interactive Testing Playground Section -->
-        <section id="playground" class="space-y-6">
+        <section id="playground" class="space-y-6 pt-4">
             <div class="border-b border-slate-800 pb-4">
                 <h2 class="text-xl font-bold text-white flex items-center gap-2">
                     <i class="fa-solid fa-vial text-teal-400"></i> Interactive Security Playground
@@ -154,8 +416,8 @@
             </div>
         </section>
 
-        <!-- 3. Development Roadmap & Funding Ask Section -->
-        <section id="roadmap" class="space-y-6">
+        <!-- 3. Development Roadmap & Funding Objectives Section -->
+        <section id="roadmap" class="space-y-6 pt-4">
             <div class="border-b border-slate-800 pb-4">
                 <h2 class="text-xl font-bold text-white flex items-center gap-2">
                     <i class="fa-solid fa-diagram-project text-sky-400"></i> Phase 2 Roadmap & Funding Objectives
@@ -209,6 +471,7 @@
                     Review GitHub Repository
                 </a>
             </div>
+
         </section>
 
     </main>
