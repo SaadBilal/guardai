@@ -3,6 +3,8 @@
 
 # 🛡️ Guard AI
 ### Enterprise Zero-Trust AI Proxy & EU Compliance Engine
+> **Developer-First Zero-Trust API Proxy & Real-Time EU AI Act Compliance Engine**
+
 
 **Designed & Built by [Saad Bilal](https://saadbilal.vercel.app/)**
 
@@ -24,8 +26,6 @@
 ---
 
 </div>
-
-> **Developer-First Zero-Trust API Proxy & Real-Time EU AI Act Compliance Engine**
 
 ## 💡 What is Guard AI?
 
