@@ -64,8 +64,48 @@
     <nav class="border-b border-slate-800/80 bg-slate-950/90 sticky top-0 z-50 backdrop-blur-md px-4 lg:px-8 py-3.5 flex items-center justify-between">
         <div class="flex items-center space-x-3">
             <a href="index.html" class="flex items-center space-x-3 group">
-                <div class="bg-gradient-to-tr from-sky-500 to-teal-400 p-2 rounded-xl text-slate-950 font-bold group-hover:scale-105 transition-transform">
-                    <i class="fa-solid fa-shield-halved text-lg"></i>
+                <!-- Guard AI Inline SVG Logo -->
+                <div class="w-28 h-20 flex-shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" class="w-full h-full drop-shadow-[0_0_12px_rgba(56,189,248,0.3)]">
+                        <defs>
+                            <linearGradient id="shieldStrokeNav" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#38bdf8" />
+                                <stop offset="50%" stop-color="#6366f1" />
+                                <stop offset="100%" stop-color="#14b8a6" />
+                            </linearGradient>
+                            <linearGradient id="aiCoreNav" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stop-color="#38bdf8" />
+                                <stop offset="100%" stop-color="#4f46e5" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Shield Outline -->
+                        <path d="M 250,75 L 370,120 C 370,280 290,380 250,415 C 210,380 130,280 130,120 Z"
+                              fill="rgba(15, 23, 42, 0.8)"
+                              stroke="url(#shieldStrokeNav)"
+                              stroke-width="14"
+                              stroke-linejoin="round" />
+                        <!-- Node Circuit Lines -->
+                        <g stroke="#475569" stroke-width="5" stroke-linecap="round">
+                            <line x1="200" y1="160" x2="250" y2="210" />
+                            <line x1="300" y1="160" x2="250" y2="210" />
+                            <line x1="250" y1="270" x2="190" y2="310" />
+                            <line x1="250" y1="270" x2="310" y2="310" />
+                        </g>
+                        <!-- Circuit Nodes -->
+                        <circle cx="200" cy="160" r="9" fill="#38bdf8" />
+                        <circle cx="300" cy="160" r="9" fill="#38bdf8" />
+                        <circle cx="190" cy="310" r="9" fill="#14b8a6" />
+                        <circle cx="310" cy="310" r="9" fill="#14b8a6" />
+                        <!-- Stylized "G" Core -->
+                        <path d="M 285,200 C 220,180 185,220 185,260 C 185,305 225,330 270,315 C 290,308 295,290 295,275 L 245,275"
+                              fill="none"
+                              stroke="url(#aiCoreNav)"
+                              stroke-width="28"
+                              stroke-linecap="round"
+                              stroke-linejoin="round" />
+                        <!-- Central Node -->
+                        <circle cx="250" cy="240" r="12" fill="#38bdf8" />
+                    </svg>
                 </div>
                 <div>
                     <h1 class="font-bold text-base text-white tracking-wide flex items-center gap-2">
