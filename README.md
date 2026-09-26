@@ -1,10 +1,35 @@
-# 🛡️ Guard AI (`guardai`)
+<!-- GUARD AI PROPRIETARY HEADER -->
+<div align="center">
+
+# 🛡️ Guard AI
+### Enterprise Zero-Trust AI Proxy & EU Compliance Engine
+
+**Designed & Built by [Saad Bilal](https://saadbilal.vercel.app/)**
+
+[![License: Proprietary](https://img.shields.io/badge/License-Proprietary_Commercial-red.svg)](https://github.com/saadbilal/guardai/blob/main/LICENSE)
+[![Status: Active Development](https://img.shields.io/badge/Status-Phase_2_Active-sky.svg)](#)
+[![Compliance: EU AI Act](https://img.shields.io/badge/EU_AI_Act-Article_10_%26_12_Compliant-teal.svg)](#)
+
+---
+
+### 🔒 PROPRIETARY SOFTWARE NOTICE
+
+> **Notice to all users and visitors:**  
+> **Guard AI** is proprietary software owned exclusively by **Saad Bilal**.  
+> The source code, architecture, design assets, and documentation contained in this repository are **NOT open-source**. Unauthorised copying, modification, distribution, reverse engineering, or commercial deployment of this codebase—in whole or in part—without express written permission from the copyright owner is strictly prohibited.
+>
+> 🌐 **Public Live Demo & Documentation:** [https://saadbilal.github.io/guardai/](https://saadbilal.github.io/guardai/)  
+> ✉️ **Commercial Licensing & Inquiries:** Contact Saad Bilal via [LinkedIn](https://www.linkedin.com/in/saadbilal/) or [Portfolio](https://saadbilal.vercel.app/)
+
+---
+
+</div>
 
 > **Developer-First Zero-Trust API Proxy & Real-Time EU AI Act Compliance Engine**
 
-**Guard AI** is an ultra-low-latency, zero-trust API proxy and compliance engine built for European enterprises, SaaS companies, and developers. It wraps around commercial (OpenAI, Anthropic) and self-hosted (Ollama, vLLM) LLM endpoints with **under 10 lines of code** automatically handling inline PII scrubbing, multi-tenant context isolation, and SHA-256 immutable audit logging.
-
 ## 💡 What is Guard AI?
+
+**Guard AI** is an ultra-low-latency, zero-trust API proxy and compliance engine built for European enterprises, SaaS companies, and developers. It wraps around commercial (OpenAI, Anthropic) and self-hosted (Ollama, vLLM) LLM endpoints with **under 10 lines of code** automatically handling inline PII scrubbing, multi-tenant context isolation, and SHA-256 immutable audit logging.
 
 Deploying Generative AI applications in Europe without strict compliance controls exposes businesses to statutory fines up to **€35 million or 7% of global annual turnover** under the **EU AI Act** and **GDPR**.
 
