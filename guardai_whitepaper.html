@@ -2,21 +2,128 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guard AI Enterprise White Paper</title>
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; color: #0f172a; max-width: 800px; margin: 0 auto; padding: 40px 20px; }
-        h1 { color: #0284c7; border-bottom: 2px solid #0284c7; padding-bottom: 10px; font-size: 26px; }
-        h2 { color: #0f172a; margin-top: 30px; font-size: 18px; border-bottom: 1px solid #cbd5e1; padding-bottom: 5px; }
-        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 12px; }
-        th, td { border: 1px solid #cbd5e1; padding: 10px; text-align: left; }
-        th { background-color: #f1f5f9; font-weight: bold; }
-        .meta { font-size: 13px; color: #64748b; margin-bottom: 30px; }
-        .highlight-box { background-color: #f0fdf4; border: 1px solid #bbf7d0; padding: 15px; border-radius: 6px; margin: 20px 0; font-size: 13px; }
-        @media print { body { padding: 0; max-width: 100%; } }
+        /* Base Reset & Box Sizing */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #0f172a;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 24px 16px;
+            background-color: #ffffff;
+        }
+
+        h1 {
+            color: #0284c7;
+            border-bottom: 2px solid #0284c7;
+            padding-bottom: 8px;
+            font-size: clamp(20px, 4vw, 28px);
+            line-height: 1.25;
+            margin-top: 0;
+        }
+
+        h2 {
+            color: #0f172a;
+            margin-top: 28px;
+            font-size: clamp(16px, 3vw, 20px);
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 6px;
+        }
+
+        p, li {
+            font-size: 14px;
+            color: #334155;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin: 12px 0;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        /* Responsive Table Wrapper */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 16px 0;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            min-width: 550px; /* Prevents awkward column crushing on mobile */
+        }
+
+        th, td {
+            border: 1px solid #e2e8f0;
+            padding: 10px 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #f8fafc;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .meta {
+            font-size: 13px;
+            color: #64748b;
+            margin-bottom: 24px;
+            background-color: #f8fafc;
+            padding: 12px 16px;
+            border-radius: 6px;
+            border-left: 4px solid #0284c7;
+        }
+
+        .highlight-box {
+            background-color: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            padding: 16px;
+            border-radius: 6px;
+            margin: 20px 0;
+            font-size: 13.5px;
+            color: #14532d;
+        }
+
+        /* Print Override for PDF Generation */
+        @media print {
+            body {
+                padding: 0;
+                max-width: 100%;
+                color: #000000;
+            }
+            .table-container {
+                overflow-x: visible;
+                border: none;
+            }
+            table {
+                min-width: 100%;
+            }
+            .meta {
+                border-left: 2px solid #000000;
+            }
+        }
     </style>
 </head>
 <body>
     <h1>Guard AI: Sovereign AI Governance & Zero-Trust Middleware</h1>
+
     <div class="meta">
         <strong>Document Type:</strong> Enterprise Technical & Compliance White Paper<br>
         <strong>Target Standards:</strong> EU AI Act, GDPR, Pakistan PECA (2016/2025), PDPB, National AI Policy 2025<br>
@@ -28,33 +135,39 @@
     </div>
 
     <h2>1. Compliance Mapping Matrix</h2>
-    <table>
-        <tr>
-            <th>Law / Standard</th>
-            <th>Requirement</th>
-            <th>Guard AI Technical Enforcement</th>
-        </tr>
-        <tr>
-            <td><strong>EU AI Act (Art. 9, 10, 14)</strong></td>
-            <td>Risk management & governance for High-Risk AI</td>
-            <td>Dynamic vector risk scoring & dynamic context boundary isolation.</td>
-        </tr>
-        <tr>
-            <td><strong>EU GDPR (Art. 5, 32, 44)</strong></td>
-            <td>Cross-border transfer limits & data minimization</td>
-            <td>Zero-persistence PII sanitization prior to external API dispatch.</td>
-        </tr>
-        <tr>
-            <td><strong>Pakistan PECA Act</strong></td>
-            <td>Protection against identity fraud & illegal interception</td>
-            <td>Regex + NER tokenization of 13-digit CNIC numbers and phone numbers.</td>
-        </tr>
-        <tr>
-            <td><strong>Pakistan PDPB</strong></td>
-            <td>Mandatory cross-border isolation & consent enforcement</td>
-            <td>Enforces strict local PII masking before foreign model dispatch.</td>
-        </tr>
-    </table>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Law / Standard</th>
+                    <th>Requirement</th>
+                    <th>Guard AI Technical Enforcement</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>EU AI Act (Art. 9, 10, 14)</strong></td>
+                    <td>Risk management & governance for High-Risk AI</td>
+                    <td>Dynamic vector risk scoring & dynamic context boundary isolation.</td>
+                </tr>
+                <tr>
+                    <td><strong>EU GDPR (Art. 5, 32, 44)</strong></td>
+                    <td>Cross-border transfer limits & data minimization</td>
+                    <td>Zero-persistence PII sanitization prior to external API dispatch.</td>
+                </tr>
+                <tr>
+                    <td><strong>Pakistan PECA Act</strong></td>
+                    <td>Protection against identity fraud & illegal interception</td>
+                    <td>Regex + NER tokenization of 13-digit CNIC numbers and phone numbers.</td>
+                </tr>
+                <tr>
+                    <td><strong>Pakistan PDPB</strong></td>
+                    <td>Mandatory cross-border isolation & consent enforcement</td>
+                    <td>Enforces strict local PII masking before foreign model dispatch.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
     <h2>2. Technical Architecture & Verification</h2>
     <p>Guard AI executes as an asynchronous, high-throughput gateway with sub-15ms latency overhead, featuring 3 core layers:</p>
