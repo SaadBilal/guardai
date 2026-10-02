@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guard AI Enterprise White Paper</title>
+    <!-- FontAwesome Icons for Navigation & Actions -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         /* Base Reset & Box Sizing */
         *, *::before, *::after {
@@ -16,8 +18,84 @@
             color: #0f172a;
             max-width: 900px;
             margin: 0 auto;
-            padding: 24px 16px;
+            padding: 0 16px 32px 16px;
             background-color: #ffffff;
+        }
+
+        /* Responsive Navigation Bar */
+        .nav-header {
+            position: sticky;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid #e2e8f0;
+            padding: 12px 0;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            z-index: 100;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 12px;
+            background-color: #f1f5f9;
+            color: #0f172a;
+            text-decoration: none;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .btn-home:hover {
+            background-color: #e2e8f0;
+        }
+
+        .btn-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 12px;
+            background-color: #0284c7;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-action:hover {
+            background-color: #0369a1;
+        }
+
+        .btn-print {
+            background-color: #0f172a;
+        }
+
+        .btn-print:hover {
+            background-color: #334155;
+        }
+
+        .nav-brand {
+            font-size: 13px;
+            font-weight: 700;
+            color: #0284c7;
+            letter-spacing: 0.5px;
         }
 
         h1 {
@@ -65,7 +143,7 @@
             width: 100%;
             border-collapse: collapse;
             font-size: 13px;
-            min-width: 550px; /* Prevents awkward column crushing on mobile */
+            min-width: 550px;
         }
 
         th, td {
@@ -101,8 +179,24 @@
             color: #14532d;
         }
 
+        /* Responsive adjust for small phones */
+        @media (max-width: 520px) {
+            .nav-brand {
+                display: none;
+            }
+            .btn-text {
+                display: none;
+            }
+            .btn-home, .btn-action {
+                padding: 8px 10px;
+            }
+        }
+
         /* Print Override for PDF Generation */
         @media print {
+            .nav-header {
+                display: none !important; /* Hide header and print buttons in generated PDF */
+            }
             body {
                 padding: 0;
                 max-width: 100%;
@@ -122,6 +216,25 @@
     </style>
 </head>
 <body>
+
+    <!-- Sticky Mobile & Desktop Navigation Header -->
+    <header class="nav-header">
+        <a href="index.html" class="btn-home" title="Return to Home">
+            <i class="fa-solid fa-arrow-left"></i> <span class="btn-text">Home</span>
+        </a>
+
+        <span class="nav-brand">GUARD AI WHITE PAPER</span>
+
+        <div class="nav-actions">
+            <button onclick="window.print()" class="btn-action btn-print" title="Print Document">
+                <i class="fa-solid fa-print"></i> <span class="btn-text">Print</span>
+            </button>
+            <button onclick="window.print()" class="btn-action" title="Save as PDF">
+                <i class="fa-solid fa-file-pdf"></i> <span class="btn-text">Save PDF</span>
+            </button>
+        </div>
+    </header>
+
     <h1>Guard AI: Sovereign AI Governance & Zero-Trust Middleware</h1>
 
     <div class="meta">
@@ -179,5 +292,6 @@
 
     <h2>3. Sovereign Deployment Options</h2>
     <p>Supports Local Docker/Kubernetes containerization, NTC sovereign cloud hosting, and completely air-gapped hybrid deployments.</p>
+
 </body>
 </html>
