@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Guard AI Enterprise White Paper</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; color: #0f172a; max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        h1 { color: #0284c7; border-bottom: 2px solid #0284c7; padding-bottom: 10px; font-size: 26px; }
+        h2 { color: #0f172a; margin-top: 30px; font-size: 18px; border-bottom: 1px solid #cbd5e1; padding-bottom: 5px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 12px; }
+        th, td { border: 1px solid #cbd5e1; padding: 10px; text-align: left; }
+        th { background-color: #f1f5f9; font-weight: bold; }
+        .meta { font-size: 13px; color: #64748b; margin-bottom: 30px; }
+        .highlight-box { background-color: #f0fdf4; border: 1px solid #bbf7d0; padding: 15px; border-radius: 6px; margin: 20px 0; font-size: 13px; }
+        @media print { body { padding: 0; max-width: 100%; } }
+    </style>
+</head>
+<body>
+    <h1>Guard AI: Sovereign AI Governance & Zero-Trust Middleware</h1>
+    <div class="meta">
+        <strong>Document Type:</strong> Enterprise Technical & Compliance White Paper<br>
+        <strong>Target Standards:</strong> EU AI Act, GDPR, Pakistan PECA (2016/2025), PDPB, National AI Policy 2025<br>
+        <strong>Author:</strong> Guard AI Engineering Team
+    </div>
+
+    <div class="highlight-box">
+        <strong>Executive Summary:</strong> Guard AI is a zero-trust proxy middleware engineered to operate at the boundary of enterprise applications. Operating at sub-15ms processing latency, it redacts PII, blocks adversarial prompt injections, guarantees sovereign data residency, and maintains SHA-256 hash-chained immutable audit logs.
+    </div>
+
+    <h2>1. Compliance Mapping Matrix</h2>
+    <table>
+        <tr>
+            <th>Law / Standard</th>
+            <th>Requirement</th>
+            <th>Guard AI Technical Enforcement</th>
+        </tr>
+        <tr>
+            <td><strong>EU AI Act (Art. 9, 10, 14)</strong></td>
+            <td>Risk management & governance for High-Risk AI</td>
+            <td>Dynamic vector risk scoring & dynamic context boundary isolation.</td>
+        </tr>
+        <tr>
+            <td><strong>EU GDPR (Art. 5, 32, 44)</strong></td>
+            <td>Cross-border transfer limits & data minimization</td>
+            <td>Zero-persistence PII sanitization prior to external API dispatch.</td>
+        </tr>
+        <tr>
+            <td><strong>Pakistan PECA Act</strong></td>
+            <td>Protection against identity fraud & illegal interception</td>
+            <td>Regex + NER tokenization of 13-digit CNIC numbers and phone numbers.</td>
+        </tr>
+        <tr>
+            <td><strong>Pakistan PDPB</strong></td>
+            <td>Mandatory cross-border isolation & consent enforcement</td>
+            <td>Enforces strict local PII masking before foreign model dispatch.</td>
+        </tr>
+    </table>
+
+    <h2>2. Technical Architecture & Verification</h2>
+    <p>Guard AI executes as an asynchronous, high-throughput gateway with sub-15ms latency overhead, featuring 3 core layers:</p>
+    <ul>
+        <li><strong>Ingress Injection Filtering:</strong> Real-time vector classification blocking jailbreaks and command overrides.</li>
+        <li><strong>PII Anonymization Engine:</strong> Regex + NER tokenizers scrubbing CNIC, IBAN, Passports, and PHI.</li>
+        <li><strong>SHA-256 Ledger:</strong> Hash-chained immutable logging for cryptographic compliance tracking.</li>
+    </ul>
+
+    <h2>3. Sovereign Deployment Options</h2>
+    <p>Supports Local Docker/Kubernetes containerization, NTC sovereign cloud hosting, and completely air-gapped hybrid deployments.</p>
+</body>
+</html>
